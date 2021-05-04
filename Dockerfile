@@ -5,14 +5,17 @@ WORKDIR /app
 # Add `/app/node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
 
-# I install app dependencies
+# Install yarn for package management
+RUN npm install yarn --global
+
+# Install app dependencies
 COPY package.json ./
 COPY package-lock.json ./
-RUN npm install --silent
-RUN npm install react-scripts@4.0.3 -g --silent
+RUN yarn install --silent
+RUN yarn add react-scripts@4.0.3 -g --silent
 
 # add app
 COPY . ./
 
 #Start
-CMD ["npm", "start"]
+CMD ["yarn", "start"]
