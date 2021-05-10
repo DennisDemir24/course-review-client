@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import store from './store'
 import Login from './components/Login/Login'
 import Home from './components/Home/Home'
+import Course from './components/Course/Course'
 import setAuthToken from './utils/setAuthToken'
 import './App.css';
 
@@ -19,6 +20,7 @@ const App = () => {
           <Switch>
             <Route exact path="/login" component={Login} />
             <Route exact path="/" component={Home} />
+            <Route exact path="/course" component={Course} />
           </Switch>
         </Router>
       </>
