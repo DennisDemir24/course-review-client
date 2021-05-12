@@ -1,1 +1,2 @@
 export const GET_COURSES = 'GET_COURSES'
+export const SEARCH_COURSES = 'SEARCH_COURSES'
