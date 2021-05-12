@@ -29,14 +29,15 @@ const Course = (course) => {
                 <p className="mb-6">{courseInfo.course.prerequisites}</p>
             </div>
             <div className="reviewBox">
-
+                    <textarea class="w-full shadow-inner p-4 border-0 mb-4 rounded-lg focus:shadow-outline text-2xl" placeholder="Write a review here" cols="6" rows="6" id="comment_content" spellcheck="false"></textarea>
+                    <button class="font-bold py-2 px-4 w-full bg-yellow-500 text-lg text-white shadow-md rounded-lg ">Comment </button>
             </div>
             <div className="reviews">
                 {courseInfo.review.courseReviews.map(review => {
                     return (
                             <div className="bg-white rounded-lg p-3  flex flex-col justify-center items-center md:items-start shadow-lg mb-4">
                                 <div className="flex flex-row justify-center mr-2">
-                                    <h3 className="text-purple-600 font-semibold text-lg text-center md:text-left ">{review.studentID}</h3>
+                                    <h3 className="text-yellow-600 font-semibold text-lg text-center md:text-left ">{review.studentID}</h3>
                                 </div>
 
 
