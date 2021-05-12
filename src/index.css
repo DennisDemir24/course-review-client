@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +14,22 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+/* Login Screen */
+.banner {
+  @apply h-screen w-6/12;
+  background: #0b090a;
+}
+
+.banner-title {
+  /* @apply text-white; */
+
+  color: #0077b6;
+  font-weight: bold;
+}
+
+.login-form {
+  @apply w-6/12;
 }
