@@ -39,7 +39,7 @@ const Login = ({ login, auth: { isAuthenticated }, history }) => {
       <>
         <button
           onClick={onToggleVisible}
-          className="absolute right-10 top-6 bg-yellow-400 rounded-lg p-2 px-9 hover:bg-gray-400 hover:text-white font-bold text-black"
+          className="absolute right-10 top-6 bg-yellow-400 rounded-lg p-2 px-9 hover:bg-gray-600 hover:text-white font-bold text-black"
         >Login</button>
         <div className={
           visible ?
@@ -78,7 +78,7 @@ const Login = ({ login, auth: { isAuthenticated }, history }) => {
                 </div>
                 <div className="flex justify-center items-center mt-6">
                   <button
-                    className={`bg-yellow-400 py-2 px-4 text-sm text-black rounded border-green focus:outline-none focus:border-green-dark`}
+                    className={`bg-yellow-400 py-2 px-8 text-lg text-black rounded border-green focus:outline-none focus:border-green-dark`}
                     type="submit"
                   >
                     Login
