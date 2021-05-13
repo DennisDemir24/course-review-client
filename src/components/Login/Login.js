@@ -45,7 +45,7 @@ const Login = ({ login, auth: { isAuthenticated }, history }) => {
           visible ?
           "w-96 absolute visible right-10 top-28" : "h-0 invisible"
           }>
-          <div className="bg-black rounded-lg border-yellow-400 border-2">
+          <div className="bg-jet-black rounded-lg border-yellow-400 border-2">
             <div className="text-white rounded-lg py-10 px-16">
               <h1 className="text-2xl font-medium text-primary mt-4 mb-12 text-center">
                 Log in with your LNU credentials
@@ -56,7 +56,7 @@ const Login = ({ login, auth: { isAuthenticated }, history }) => {
                   <label htmlFor="text">LNU-Id</label>
                   <input
                     type="text"
-                    className={`w-full p-2 text-black rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4 bg-gray-300`}
+                    className={`w-full p-2 text-black rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4 bg-white`}
                     id="username"
                     placeholder="Lnu-Id"
                     name="username"
@@ -68,7 +68,7 @@ const Login = ({ login, auth: { isAuthenticated }, history }) => {
                   <label htmlFor="password">Password</label>
                   <input
                     type="password"
-                    className={`w-full p-2 text-black rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4 bg-gray-300`}
+                    className={`w-full p-2 text-black rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4 bg-white`}
                     id="password"
                     placeholder="Your Password"
                     name="password"
