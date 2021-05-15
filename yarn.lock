@@ -9518,6 +9518,11 @@
   "resolved" "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz"
   "version" "17.0.1"
 
+"react-rating-stars-component@^2.2.0":
+  "integrity" "sha512-A3lgLxumfFQQicKQmxacZ91fq/zRaVWlCPnVodJmJV6obvod4/yCotetN9WuyBiUfnKsEFDBo/8B85ocwmL7ng=="
+  "resolved" "https://registry.npmjs.org/react-rating-stars-component/-/react-rating-stars-component-2.2.0.tgz"
+  "version" "2.2.0"
+
 "react-redux@^7.2.4":
   "integrity" "sha512-hOQ5eOSkEJEXdpIKbnRyl04LhaWabkDPV+Ix97wqQX3T3d2NQ8DUblNXXtNMavc7DpswyQM6xfaN4HQDKNY2JA=="
   "resolved" "https://registry.npmjs.org/react-redux/-/react-redux-7.2.4.tgz"
