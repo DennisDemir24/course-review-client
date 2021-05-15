@@ -1,4 +1,3 @@
-import React from 'react'
 import Header from '../layout/header'
 import React, { useEffect } from 'react'
 import SearchBar from '../ui/SearchBar'
