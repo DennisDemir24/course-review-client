@@ -8,7 +8,7 @@ const Course = (course) => {
     //Component inspiration from https://tailwindcomponents.com/component/comments
     return (
         <>
-            <div className="body width-10 bg-jet-black">
+            <div className="body bg-jet-black">
                 <CourseHeader courseInfo={courseInfo}/>
                 <CommentBox/>
                 <CommentSection reviews={courseInfo.review}/>

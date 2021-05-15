@@ -11,6 +11,18 @@ const getTotalRating = (reviews) => {
     return total
 }
 
+const InfoLabels = ({labelInfo, SVGFile , isLink}) => {
+    console.log(labelInfo)
+    return (
+        <>
+            <span className="inline-flex text-white space-x-2 items-center">
+                <img src={SVGFile} className="w-5 h-5"></img>
+                {isLink ? <a href={labelInfo}>Kursplan</a> : <span>{labelInfo}</span>}
+            </span>
+        </>
+    )
+}
+
 const CourseHeader = ({courseInfo}) => {
 
     return (
@@ -19,7 +31,6 @@ const CourseHeader = ({courseInfo}) => {
                 <h3 className="font-bold tracking-wide text-5xl mb-2 text-white">
                     {courseInfo.course.courseTitle}
                 </h3>
-                
                 <span className="inline-flex text-white space-x-2 items-center">
                     <ReactStars
                         count={5}
@@ -30,20 +41,9 @@ const CourseHeader = ({courseInfo}) => {
                     ({courseInfo.review.courseReviews.length} reviews)
                 </span>
                 <div className="md:space-x-5 md:space-y-0 space-y-1 px-2 flex md:flex-row flex-col pb-4">
-                    <span className="inline-flex text-white space-x-2 items-center">
-                        <img src={OpenBook} alt="open book" className="w-5 h-5"></img>
-                        <span>{courseInfo.course.courseID}</span>
-                    </span>
-                    <span className="inline-flex text-white space-x-2 items-center">
-                        <img src={FileSVG} alt="file" className="w-5 h-5"></img>
-                        <span>
-                        <a href={courseInfo.course.syllabus}>Kursplan</a>
-                        </span>
-                    </span>
-                    <span className="inline-flex text-white space-x-2 items-center">
-                        <img src={LangSVG} alt="language" className="w-5 h-5"></img>
-                        <span>{courseInfo.course.teachingLanguage}</span>
-                    </span>
+                    <InfoLabels labelInfo={courseInfo.course.courseID} SVGFile={OpenBook}/>
+                    <InfoLabels labelInfo={courseInfo.course.syllabus} SVGFile={FileSVG} isLink={true}/>
+                    <InfoLabels labelInfo={courseInfo.course.teachingLanguage} SVGFile={LangSVG}/>
                 </div>
                 <div>
                     <span className="inline-flex text-white space-x-2 items-center">
