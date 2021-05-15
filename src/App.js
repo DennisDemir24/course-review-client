@@ -3,11 +3,8 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './store'
 import Home from './components/Home/Home'
-<<<<<<< HEAD
-import Course from './components/Course/Course'
-=======
 import Layout from './components/layout/Layout'
->>>>>>> 29a5ee14750aed40d7e1c85fdf925abf2c6578db
+import Course from './components/Course/Course'
 import setAuthToken from './utils/setAuthToken'
 import './App.css';
 
