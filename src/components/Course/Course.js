@@ -1,5 +1,6 @@
 import React from 'react'
 import courseInfo from './info.json'
+import ReactStars from 'react-rating-stars-component'
 
 const getTotalRating = (reviews) => {
     let score = 0
@@ -16,7 +17,7 @@ const Course = (course) => {
     //Component inspiration from https://tailwindcomponents.com/component/comments
     return (
         <>
-        <div className="body width-10">
+        <div className="body width-10 bg-gray-200">
         <div>
             <h3 className="font-bold tracking-wide text-5xl mb-2 text-gray-700">
             {courseInfo.course.courseTitle}
@@ -28,7 +29,12 @@ const Course = (course) => {
                 </span>
                 <span className="inline-flex text-gray-500 space-x-2 items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" className="fill-current w-5 h-5" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>
-                    <span>{getTotalRating(courseInfo.review)}/5</span>
+                    <span><ReactStars
+                            count={5}
+                            size={24}
+                            value={getTotalRating(courseInfo.review)}
+                            activeColor="#ffd700"
+                            edit={false}/> ({courseInfo.review.courseReviews.length} reviews)</span>
                 </span>
                 <span className="inline-flex text-gray-500 space-x-2 items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" className="fill-current w-5 h-5" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 16.947v1.053h-1v-.998c-1.035-.018-2.106-.265-3-.727l.455-1.644c.956.371 2.229.765 3.225.54 1.149-.26 1.384-1.442.114-2.011-.931-.434-3.778-.805-3.778-3.243 0-1.363 1.039-2.583 2.984-2.85v-1.067h1v1.018c.724.019 1.536.145 2.442.42l-.362 1.647c-.768-.27-1.617-.515-2.443-.465-1.489.087-1.62 1.376-.581 1.916 1.712.805 3.944 1.402 3.944 3.547.002 1.718-1.343 2.632-3 2.864z"/></svg>
@@ -46,11 +52,11 @@ const Course = (course) => {
                 </span>
             </div>
             </div>
-            <div className="reviewBox">
+            <div className="reviewBox w-1/2 m-auto">
                     <textarea className="w-full shadow-inner p-4 border-0 mb-4 rounded-lg focus:shadow-outline text-1xl" placeholder="Write a review here" cols="3" rows="3" id="comment_content" spellCheck="false"></textarea>
                     <button className="font-bold py-2 px-4 w-full bg-yellow-500 text-lg text-white shadow-md rounded-lg ">Comment </button>
             </div>
-            <div className="reviews">
+            <div className="reviews w-1/2 m-auto">
                 {courseInfo.review.courseReviews.map(review => {
                     return (
                             <div key={review._id} className="bg-white rounded-lg p-3  flex flex-col justify-center items-center md:items-start shadow-lg mb-4">
