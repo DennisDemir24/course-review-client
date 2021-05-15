@@ -44,7 +44,6 @@ const Login = ({ login, auth: { isAuthenticated }, history }) => {
             event.target.id !== "header-login-button" &&
             !visible
           ) {
-            console.log("clicked outside login form")
             visibleState(false)
           }
         }
