@@ -9,9 +9,9 @@ const Course = (course) => {
     return (
         <>
             <div className="body bg-gray-800">
-                <CourseHeader courseInfo={courseInfo}/>
+                <CourseHeader courseInfo={course}/>
                 <CommentBox/>
-                <CommentSection reviews={courseInfo.review}/>
+                <CommentSection reviews={course.review}/>
             </div>
         </>
     )

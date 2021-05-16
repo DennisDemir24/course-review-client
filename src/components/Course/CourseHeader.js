@@ -47,6 +47,7 @@ const CourseHeader = ({courseInfo}) => {
                 </div>
                 <div>
                     <span className="inline-flex text-white space-x-2 items-center">
+                        <span>{courseInfo.course.courseDescription}</span>
                         <span>{courseInfo.course.prerequisites}</span>
                     </span>
                 </div>

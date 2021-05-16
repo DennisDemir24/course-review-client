@@ -15,7 +15,8 @@
         "__v": 0,
         "courseTitleEnglish": "Database Theory",
         "courseURLENG": "https://lnu.se/en/course/database-theory/vaxjo-exchange-part-time-autumn/",
-        "prerequisitesENG": "60 credits in Computer Science including Objectoriented Programming 7.5 credits (1DV502) or Programming and Data Structures 7.5 credits (1DV507) or equivalent."
+        "prerequisitesENG": "60 credits in Computer Science including Objectoriented Programming 7.5 credits (1DV502) or Programming and Data Structures 7.5 credits (1DV507) or equivalent.",
+        "courseDescription": "Kursen ger en teknisk och begreppsmässig grund för databassystem genom att studera databasmodeller, databasmodellering, relationsalgebra, lagringsstrukturer, SQL och andra delvis visuella frågespråk samt visuella databasgränssnitt."
     },
     "review": {
         "totalRating": 3,
