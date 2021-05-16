@@ -33,6 +33,8 @@ const Home = ({ course: {courses}}) => {
             })}
         </div>
       </div>
+        <div>
+        </div>
     )
 }
 

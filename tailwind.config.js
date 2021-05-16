@@ -11,6 +11,8 @@ module.exports = {
       ...theme('colors'),
       'jet-black': '#212121',
     }),
+      general: ['Quicksand', 'sans-serif']
+    },
   },
   variants: {
     extend: {},
