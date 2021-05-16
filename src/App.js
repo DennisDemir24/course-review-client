@@ -5,7 +5,6 @@ import store from './store'
 import Login from './components/Login/Login'
 import Home from './components/Home/Home'
 import setAuthToken from './utils/setAuthToken'
-import './App.css';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token)
