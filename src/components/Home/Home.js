@@ -1,10 +1,45 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import SearchBar from '../ui/SearchBar'
+import Card from '../ui/Card'
+import { connect } from 'react-redux'
+import { searchCourses } from '../../actions/courseActions'
 
-const Home = () => {
+const Home = ({ course: {courses}}) => {
+
+    useEffect(() => {
+
+    }, [])
+
     return (
+      <div className="bg-jet-black">
+        <div className="text-white">NAVBAR</div>
+        <SearchBar />
+        <div className="grid grid-cols-4 grid-rows-4 gap-2 pl-4 pr-4">
+          {courses !== null &&
+            courses.map((course) => {
+              return (
+                <Card className="text-center px-2 pt-2 pb-2 transition duration-500 ease-in-out hover:bg-yellow-400 transform hover:-translate-y-1 hover:scale-100">
+                  <Link to="!#">
+                    <div key={course.courseID}>
+                      <h1 className="text-jet-black font-bold text-base">
+                        {course.courseID}
+                      </h1>
+                      <h5 className="text-jext-black">{course.courseTitle}</h5>
+                    </div>
+                  </Link>
+                </Card>
+              )
+            })}
+        </div>
+      </div>
         <div>
         </div>
     )
 }
 
-export default Home
+const mapStateToProps = (state) => ({
+  course: state.course,
+})
+
+export default connect(mapStateToProps, { })(Home)
