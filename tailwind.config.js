@@ -5,12 +5,12 @@ module.exports = {
     extend: {},
     fontFamily: {
       title: ['Dosis', 'sans-serif'],
-      general: ['Quicksand', 'sans-serif']
+      general: ['Quicksand', 'sans-serif'],
     },
-    backgroundColor: theme => ({
+    backgroundColor: (theme) => ({
       ...theme('colors'),
       'jet-black': '#212121',
-    })
+    }),
   },
   variants: {
     extend: {},
