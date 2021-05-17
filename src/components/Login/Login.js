@@ -68,7 +68,7 @@ const Login = ({ login, auth: { isAuthenticated }, history }) => {
         <div
           className={
           visible ?
-          "w-96 absolute visible right-10 top-28" : "h-0 invisible"
+          "w-96 absolute visible right-10 top-28 z-10" : "h-0 invisible"
           }
           ref={wrapperRef}
         >
