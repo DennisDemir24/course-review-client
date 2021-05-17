@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { connect } from 'react-redux'
 import { login } from '../../actions/authActions'
 
@@ -35,16 +35,43 @@ const Login = ({ login, auth: { isAuthenticated }, history }) => {
 
     const onToggleVisible = () => visibleState(!visible)
 
+    const useOutsideAlerter = (ref) => {
+      useEffect(() => {
+        function handleClickOutSide(event) {
+          if (
+            ref.current &&
+            !ref.current.contains(event.target) &&
+            event.target.id !== "header-login-button" &&
+            !visible
+          ) {
+            visibleState(false)
+          }
+        }
+
+        document.addEventListener("mouseup", handleClickOutSide)
+        return () => {
+          document.removeEventListener("mouseup", handleClickOutSide)
+        }
+      }, [ref])
+    }
+
+    const wrapperRef = useRef(null)
+    useOutsideAlerter(wrapperRef)
+
     return (
       <>
         <button
           onClick={onToggleVisible}
           className="absolute right-10 top-6 bg-yellow-400 focus:outline-none rounded p-2 px-9 hover:bg-gray-600 hover:text-white text-black"
+          id="header-login-button"
         >Login</button>
-        <div className={
+        <div
+          className={
           visible ?
           "w-96 absolute visible right-10 top-28" : "h-0 invisible"
-          }>
+          }
+          ref={wrapperRef}
+        >
           <div className="bg-jet-black rounded-lg border-yellow-400 border-2">
             <div className="text-white rounded-lg py-10 px-16">
               <h1 className="text-2xl font-medium text-primary mt-4 mb-12 text-center">
