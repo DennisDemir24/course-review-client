@@ -5,6 +5,7 @@ import Card from '../ui/Card'
 import { connect } from 'react-redux'
 import { searchCourses } from '../../actions/courseActions'
 
+
 const Home = ({ course: {courses}}) => {
 
     useEffect(() => {

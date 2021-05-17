@@ -1,0 +1,98 @@
+{
+    "course": {
+        "_id": "60645e6e6a3b3a6bf066bbb5",
+        "courseTitle": "Databasteori",
+        "courseID": "2DV513",
+        "courseLevel": "Grund­nivå",
+        "syllabus": "https://kursplan.lnu.se/kursplaner/kursplan-2DV513-2.pdf",
+        "syllabusENG": "https://kursplan.lnu.se/kursplaner/syllabus-2DV513-2.pdf",
+        "teachingLanguage": "Engelska",
+        "courseGroup": "DV",
+        "prerequisites": "60 hp i datavetenskap inklusive Objektorienterad programmering, 7,5 hp (1DV502) eller Programmering och datastrukturer 7,5 hp (1DV507) eller motsvarande.",
+        "courseURL": "https://lnu.se/kurs/databasteori/vaxjo-internationell-deltid-engelska-ht/",
+        "isDistance": false,
+        "courseSpeed": 0.5,
+        "__v": 0,
+        "courseTitleEnglish": "Database Theory",
+        "courseURLENG": "https://lnu.se/en/course/database-theory/vaxjo-exchange-part-time-autumn/",
+        "prerequisitesENG": "60 credits in Computer Science including Objectoriented Programming 7.5 credits (1DV502) or Programming and Data Structures 7.5 credits (1DV507) or equivalent.",
+        "courseDescription": "Kursen ger en teknisk och begreppsmässig grund för databassystem genom att studera databasmodeller, databasmodellering, relationsalgebra, lagringsstrukturer, SQL och andra delvis visuella frågespråk samt visuella databasgränssnitt."
+    },
+    "review": {
+        "totalRating": 3,
+        "courseReviews": [
+            {
+                "score": [
+                    "student1",
+                    "student2",
+                    "student3",
+                    "test"
+                ],
+                "_id": "6092ddfc6bc16774fdee151e",
+                "courseID": "2DV513",
+                "message": "So good course,pedagogical inspiring and good lectures. ",
+                "rating": 5,
+                "anonymous": false,
+                "studentID": "dj222ja",
+                "__v": 1
+            },
+            {
+                "score": [
+                    "student4",
+                    "student5",
+                    "student6"
+                ],
+                "_id": "6092de82db720b000781991b",
+                "courseID": "2DV513",
+                "message": "The course almost killed me \n",
+                "rating": 1,
+                "anonymous": false,
+                "studentID": "dj222je"
+            },
+            {
+                "score": [],
+                "_id": "6098f3cd22b79b1eb00f8581",
+                "courseID": "2DV513",
+                "message": "bad course",
+                "rating": 3,
+                "anonymous": true,
+                "studentID": "Anonymous",
+                "__v": 0
+            },
+            {
+                "score": [
+                    "student4",
+                    "student5",
+                    "student6",
+                    "student7",
+                    "student8",
+                    "student9"
+                ],
+                "_id": "42308975yn8932y758235rf",
+                "courseID": "2DV513",
+                "message": "wonderful course gave me good grade thank u!",
+                "rating": 3,
+                "anonymous": false,
+                "studentID": "cn222tm",
+                "__v": 0
+            },
+            {
+                "score": [
+                    "student4",
+                    "student5",
+                    "student6",
+                    "student7",
+                    "student8",
+                    "student9"
+                ],
+                "_id": "42308975yn8932y758235rf",
+                "courseID": "2DV513",
+                "message": "wonderful course gave me good grade thank u!",
+                "rating": 5,
+                "anonymous": false,
+                "studentID": "cn222tm",
+                "__v": 0
+            }
+        ]
+    }
+}
