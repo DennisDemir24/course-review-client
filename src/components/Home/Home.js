@@ -8,10 +8,6 @@ import { searchCourses } from '../../actions/courseActions'
 
 const Home = ({ course: {courses}}) => {
 
-    useEffect(() => {
-
-    }, [])
-
     return (
       <div className="bg-jet-black">
         <SearchBar />

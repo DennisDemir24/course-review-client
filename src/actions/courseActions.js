@@ -1,5 +1,4 @@
 import { SEARCH_COURSES } from './types'
-import { GET_COURSES, SEARCH_COURSES } from './types'
 import axios from 'axios'
 
 // Search server for courses
