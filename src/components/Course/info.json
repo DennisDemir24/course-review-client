@@ -18,8 +18,10 @@
         "prerequisitesENG": "60 credits in Computer Science including Objectoriented Programming 7.5 credits (1DV502) or Programming and Data Structures 7.5 credits (1DV507) or equivalent.",
         "courseDescription": "Kursen ger en teknisk och begreppsmässig grund för databassystem genom att studera databasmodeller, databasmodellering, relationsalgebra, lagringsstrukturer, SQL och andra delvis visuella frågespråk samt visuella databasgränssnitt."
     },
+    "studentID":"test",
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoidGVzdCIsImlhdCI6MTYyMTI0MTMwOSwiZXhwIjoxNjIxMzI3NzA5fQ.apG3Rp1tH1RWn3leKf7V5nt-NUXEN96tXEWf9cvS6ps",
     "review": {
-        "totalRating": 3,
+        "totalRating": 3.5,
         "courseReviews": [
             {
                 "score": [
@@ -45,13 +47,13 @@
                 "_id": "6092de82db720b000781991b",
                 "courseID": "2DV513",
                 "message": "The course almost killed me \n",
-                "rating": 1,
+                "rating": 2,
                 "anonymous": false,
                 "studentID": "dj222je"
             },
             {
                 "score": [],
-                "_id": "6098f3cd22b79b1eb00f8581",
+                "_id": "6098f3cd22b79cgfdgb1eb00f8581",
                 "courseID": "2DV513",
                 "message": "bad course",
                 "rating": 3,
@@ -68,7 +70,7 @@
                     "student8",
                     "student9"
                 ],
-                "_id": "42308975yn8932y758235rf",
+                "_id": "42308975yn8932asy758235rf",
                 "courseID": "2DV513",
                 "message": "wonderful course gave me good grade thank u!",
                 "rating": 3,
@@ -85,7 +87,7 @@
                     "student8",
                     "student9"
                 ],
-                "_id": "42308975yn8932y758235rf",
+                "_id": "42308975yn89asdasd32y758235rf",
                 "courseID": "2DV513",
                 "message": "wonderful course gave me good grade thank u!",
                 "rating": 5,
