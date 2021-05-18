@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import store from './store'
 import Home from './components/Home/Home'
 import Layout from './components/layout/Layout'
-import Course from './components/Course/Course'
+import CourseHeader from './components/Course/CourseHeader'
 import setAuthToken from './utils/setAuthToken'
 
 if (localStorage.token) {
@@ -18,7 +18,7 @@ const App = () => {
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/course" component={Course} />
+            <Route exact path="/course/:id" component={CourseHeader} />
           </Switch>
         </Router>
       </Layout>
