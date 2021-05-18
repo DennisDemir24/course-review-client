@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react'
+import CommentSection from './CommentSection.js'
+import CommentBox from './CommentBox.js'
 import { useSelector, useDispatch } from 'react-redux'
 import { getCourseById } from '../../actions/courseActions'
 import { connect } from 'react-redux'
@@ -113,6 +115,7 @@ const CourseHeader = ({ match}) => {
           </span>
         </div>
       </div> */}
+      <CommentBox />
     </>
   )
 }
