@@ -18,7 +18,7 @@ const SearchBar = ({searchCourses}) => {
 
   return (
     <div className={`py-8 w-8/12 absolute top-2/4 left-2/4 transform -translate-x-2/4 -translate-y-2/4 ${animate ? 'animate-push-search-bar' : ''}`}>
-      <div className="bg-white flex items-center rounded-full shadow-xl">
+      <form className="bg-white flex items-center rounded-full shadow-xl" onSubmit={onSubmit}>
         <input
           className="rounded-l-full w-full py-4 px-6 text-xl text-gray-700 leading-tight focus:outline-none"
           id="search"
@@ -29,11 +29,11 @@ const SearchBar = ({searchCourses}) => {
         />
 
         <div className="p-4">
-          <button onClick={onSubmit} className="bg-yellow-400 text-white rounded-full p-2 hover:bg-yellow-300 focus:outline-none w-12 h-12 flex items-center justify-center">
+          <button type="submit" className="bg-yellow-400 text-white rounded-full p-2 hover:bg-yellow-300 focus:outline-none w-12 h-12 flex items-center justify-center">
             <i className="fas fa-search text-black"></i>
           </button>
         </div>
-      </div>
+      </form>
     </div>
   )
 }
