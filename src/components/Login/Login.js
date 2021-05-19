@@ -72,7 +72,7 @@ const Login = ({ login, auth: { isAuthenticated }, history }) => {
           }
           ref={wrapperRef}
         >
-          <div className="bg-jet-black rounded-lg border-yellow-400 border-2">
+          <div className="bg-jet-black-header rounded-lg border-yellow-400 border-2">
             <div className="text-white rounded-lg py-10 px-16">
               <h1 className="text-2xl font-medium text-primary mt-4 mb-12 text-center">
                 Log in with your LNU credentials

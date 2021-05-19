@@ -9,7 +9,11 @@ module.exports = {
     },
     backgroundColor: (theme) => ({
       ...theme('colors'),
-      'jet-black': '#212121',
+      'jet-black': {
+        header: '#212121',
+        main: '#383838',
+        footer: '#0A0A0A'
+      }
     }),
   },
   variants: {

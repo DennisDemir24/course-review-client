@@ -6,8 +6,6 @@ const SearchBar = ({searchCourses}) => {
     const [search, setSearch] = useState("")
 
     const onCourseSearch = (e) => {
-        
-
         setSearch(e.target.value)
     }
 
@@ -18,7 +16,7 @@ const SearchBar = ({searchCourses}) => {
     }
 
   return (
-    <div className="p-8 mt-8">
+    <div className="p-8">
       <div className="bg-white flex items-center rounded-full shadow-xl">
         <input
           className="rounded-l-full w-full py-4 px-6 text-xl text-gray-700 leading-tight focus:outline-none"
