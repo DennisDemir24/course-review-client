@@ -1,14 +1,16 @@
 import React, {useState} from 'react'
 
-const HandleSubmit = event => {
-    console.log(event.message);
-    alert('tes')
-}
+
 
 const CommentBox = () => {
     const [openBox, openBoxState] = useState(false)
 
     const toggleOpenBox = () => openBoxState(!openBox)
+
+    const HandleSubmit = event => {
+        alert('tes')
+    }
+
     return (
         <>
             <div className="reviewBox w-1/2 m-auto pb-4">
