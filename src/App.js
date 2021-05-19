@@ -3,9 +3,8 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './store'
 import Home from './components/Home/Home'
-import Login from './components/Login/Login'
 import Layout from './components/layout/Layout'
-import CourseHeader from './components/Course/CourseHeader'
+import Course from './components/Course/Course'
 import setAuthToken from './utils/setAuthToken'
 
 if (localStorage.token) {
@@ -19,7 +18,7 @@ const App = () => {
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/course/:id" component={CourseHeader} />
+            <Route exact path="/course/:id" component={Course} />
           </Switch>
         </Router>
       </Layout>
