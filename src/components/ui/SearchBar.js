@@ -3,20 +3,21 @@ import { connect } from 'react-redux'
 import { searchCourses } from '../../actions/courseActions'
 
 const SearchBar = ({searchCourses}) => {
-    const [search, setSearch] = useState("")
+  const [search, setSearch] = useState("")
+  const [animate, animateState] = useState(false)
 
-    const onCourseSearch = (e) => {
-        setSearch(e.target.value)
-    }
+  const onCourseSearch = (e) => {
+      setSearch(e.target.value)
+  }
 
-    const onSubmit = (e) => {
-        e.preventDefault()
-
-        searchCourses(search)
-    }
+  const onSubmit = (e) => {
+      e.preventDefault()
+      animateState(true)
+      searchCourses(search)
+  }
 
   return (
-    <div className="p-8">
+    <div className={`py-8 w-8/12 absolute top-2/4 left-2/4 transform -translate-x-2/4 -translate-y-2/4 ${animate ? 'animate-push-search-bar' : ''}`}>
       <div className="bg-white flex items-center rounded-full shadow-xl">
         <input
           className="rounded-l-full w-full py-4 px-6 text-xl text-gray-700 leading-tight focus:outline-none"
