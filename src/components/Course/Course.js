@@ -1,72 +1,132 @@
 import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import {createStore} from 'redux'
+import { useSelector, useDispatch} from 'react-redux'
 import { getCourseById } from '../../actions/courseActions'
-import courseInfo from './info.json'
 import CommentSection from './CommentSection.js'
 import CommentBox from './CommentBox.js'
-import CourseHeader from './CourseHeader.js'
-
-const Course = ({ match }) => {
-  //Component inspiration from https://tailwindcomponents.com/component/comments
-  const course = useSelector((state) => state.course)
-  const dispatch = useDispatch()
-  console.log(course.courses.course)
-
-  useEffect(() => {
-    dispatch(getCourseById(match.params.id))
-  }, [dispatch, match.params.id])
+/* import CourseHeader from './CourseHeader.js' */
+import ReactStars from 'react-rating-stars-component'
+import OpenBook from '../../images/open-book.svg'
+import FileSVG from '../../images/file.svg'
+import LangSVG from '../../images/global.svg'
 
 
+const Course = ({ match}) => {
+    //Component inspiration from https://tailwindcomponents.com/component/comments
+    let course = useSelector((state) => state.course.courses)
+    const dispatch = useDispatch()
 
-  return (
-    <>
-      { course.courses.course ? (
-          <div className="body bg-gray-800">
+    const updateFormValues = ({formData}) => {
+        course = formData
+    }
+
+
+    const loadState = () => {
+        try {
+            const serializedState = JSON.parse(window.localStorage.getItem('state'))
+            if (serializedState === null) {
+                return undefined
+            }
+            return serializedState
+        } catch (e) {
+            return undefined
+        }
+    }
+
+    const saveState = (state) => {
+        try {
+            dispatch(getCourseById(match.params.id))
+            const serializedState = JSON.stringify(state)
+            window.localStorage.setItem('state', serializedState)
+        } catch (e) {
+            
+        }
+    }
+    saveState(course)
+
+    const persistedState = loadState()
+
+
+    const store = createStore(persistedState)
+
+
+    store.subscribe(() => {
+        saveState(store.getState())
+    })
+   /*  useEffect(() => {
+        dispatch(getCourseById(match.params.id))
+        window.localStorage.setItem('course', JSON.stringify(course))
+    })
+    
+    useEffect(() => {
+        const formData = window.localStorage.getItem('course')
+        console.log(formData);
+        updateFormValues(formData)
+    }, []) */
+
+
+
+    const InfoLabels = ({ labelInfo, SVGFile, isLink }) => {
+        return (
         <>
-          <div className="pb-12">
+            <span className="inline-flex text-white space-x-2 items-center">
+            <img src={SVGFile} className="w-5 h-5"></img>
+            {isLink ? <a href={labelInfo}>Kursplan</a> : <span>{labelInfo}</span>}
+            </span>
+        </>
+        )
+    }
+
+
+    return (
+    <>
+        { course.course ? (
+            <div className="body bg-gray-800">
+        <>
+            <div className="pb-12">
             <h3 className="font-bold tracking-wide text-5xl mb-2 text-white">
-              {course.courses.course.courseTitle}
+                {course.course.courseTitle}
             </h3>
-            {/* <span className="inline-flex text-white space-x-2 items-center">
-              <ReactStars
+            <span className="inline-flex text-white space-x-2 items-center">
+                <ReactStars
                 count={5}
                 size={30}
-                value={courseInfo.review.totalRating}
+                value={course.review.totalRating}
                 activeColor="#ffd700"
                 edit={false}
                 isHalf={true}
-              />
-              ({courseInfo.review.courseReviews.length} reviews)
-            </span> */}
-            {/* <div className="md:space-x-5 md:space-y-0 space-y-1 px-2 flex md:flex-row flex-col pb-4">
-              <InfoLabels
-                labelInfo={courseInfo.course.courseID}
+                />
+                ({course.review.courseReviews.length} reviews)
+            </span>
+            <div className="md:space-x-5 md:space-y-0 space-y-1 px-2 flex md:flex-row flex-col pb-4">
+                <InfoLabels
+                labelInfo={course.course.courseID}
                 SVGFile={OpenBook}
-              />
-              <InfoLabels
-                labelInfo={courseInfo.course.syllabus}
+                />
+                <InfoLabels
+                labelInfo={course.course.syllabus}
                 SVGFile={FileSVG}
                 isLink={true}
-              />
-              <InfoLabels
-                labelInfo={courseInfo.course.teachingLanguage}
+                />
+                <InfoLabels
+                labelInfo={course.course.teachingLanguage}
                 SVGFile={LangSVG}
-              />
-            </div> */}
-            <div>
-              <span className="inline-flex text-white space-x-2 items-center">
-                <span>{course.courses.course.courseDescription}</span>
-                <span>{course.courses.course.prerequisites}</span>
-              </span>
+                />
             </div>
-          </div>
+            <div>
+                <span className="inline-flex text-white space-x-2 items-center">
+                <span>{course.course.courseDescription}</span>
+                <span>{course.course.prerequisites}</span>
+                </span>
+            </div>
+            </div>
         </>
-        {/* <CommentBox />
-        <CommentSection reviews={course.courses.review} /> */}
-      </div>
-      ) : null}
+        <CommentBox />
+        <CommentSection reviews={course.review} />
+        </div>
+        ) : null}
     </>
-  )
+    )
 }
 
 export default Course
