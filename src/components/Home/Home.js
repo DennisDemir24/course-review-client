@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import SearchBar from '../ui/SearchBar'
 import Card from '../ui/Card'
 import { connect } from 'react-redux'
-import { searchCourses } from '../../actions/courseActions'
 
 
 const Home = ({ course: {courses}}) => {
@@ -16,7 +15,7 @@ const Home = ({ course: {courses}}) => {
             courses.map((course) => {
               return (
                 <Card className="text-center px-2 pt-2 pb-2 transition duration-500 ease-in-out hover:bg-yellow-400 transform hover:-translate-y-1 hover:scale-100">
-                  <Link to="!#">
+                  <Link to={`/course/${course.courseID}`}>
                     <div key={course.courseID}>
                       <h1 className="text-jet-black font-bold text-base">
                         {course.courseID}
