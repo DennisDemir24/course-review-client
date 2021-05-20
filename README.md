@@ -68,4 +68,20 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# course-review-client
+# Deploy to cs cloud.
+### SSH
+First ssh into the machine you are planning to deploy this server on.
+
+### Install dependensies
+    curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+    sudo npm install pm2 -g
+
+### Install server
+    git clone https://github.com/DennisDemir24/course-review-client.git
+    cd course-review-client
+    npm i
+    pm2 start --name frontend npm -- start --watch
+### Udate server
+    cd course-review-client 
+    git pull

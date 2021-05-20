@@ -1,4 +1,8 @@
-import { SEARCH_COURSES, GET_COURSE_BY_ID } from './types'
+import {
+  SEARCH_COURSES,
+  GET_COURSE_BY_ID,
+  POST_REVIEW,
+} from './types'
 import axios from 'axios'
 
 // Search server for courses
@@ -28,3 +32,4 @@ export const getCourseById = (id) => async (dispatch) => {
     }
 
 }
+

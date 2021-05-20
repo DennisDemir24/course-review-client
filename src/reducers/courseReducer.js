@@ -1,10 +1,11 @@
-import { SEARCH_COURSES, GET_COURSE_BY_ID } from '../actions/types'
+import { SEARCH_COURSES, GET_COURSE_BY_ID,} from '../actions/types'
 
 const initialState = {
   courses: null,
   loading: true,
   error: null,
-  course:JSON.parse(localStorage.getItem('course')),
+  reviews: null,
+  course: null
 }
 
 
@@ -19,7 +20,7 @@ export default (state = initialState, action) => {
             courses: action.payload
         }
       case GET_COURSE_BY_ID:
-        localStorage.setItem('course',JSON.stringify(action.payload))
+        /* localStorage.setItem('course',JSON.stringify(action.payload)) */
         return {
           ...state,
           course: action.payload
