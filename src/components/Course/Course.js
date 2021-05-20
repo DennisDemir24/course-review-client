@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
-import {createStore} from 'redux'
 import { useSelector, useDispatch} from 'react-redux'
 import { getCourseById } from '../../actions/courseActions'
-import { loadState, saveState } from '../../utils/localStorage.js'
 import CommentSection from './CommentSection.js'
 import CommentBox from './CommentBox.js'
 /* import CourseHeader from './CourseHeader.js' */
@@ -16,10 +14,11 @@ const Course = ({match}) => {
     //Component inspiration from https://tailwindcomponents.com/component/comments
     let course = useSelector((state) => state.course.courses)
     const dispatch = useDispatch()
+    console.log(useSelector((state) => state.course))
    
     useEffect(() => {
         dispatch(getCourseById(match.params.id))
-    })
+    },[match, match.params.id])
 
 
 
