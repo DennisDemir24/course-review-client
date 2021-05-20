@@ -13,8 +13,8 @@ const Login = ({ login, auth }) => {
     const { username, password } = user
 
     const onLogout = (e) => {
-      login({username: "logout", password: ""}) 
-    } 
+      login({username: "logout", password: ""})
+    }
     const onChange = (e) => {
         userState({...user, [e.target.name]: e.target.value})
     }
@@ -112,7 +112,7 @@ const Login = ({ login, auth }) => {
                     onChange={onChange}
                   />
                 </div>
-                <div id="error">{auth.errorMessage}</div>
+                <div id="error" className="text-red-500">{auth.errorMessage}</div>
                 <div className="flex justify-center items-center mt-6">
                   <button
                     className={`bg-yellow-400 py-2 px-8 text-lg text-black rounded border-green focus:outline-none focus:border-green-dark`}
