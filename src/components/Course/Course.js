@@ -11,32 +11,17 @@ import OpenBook from '../../images/open-book.svg'
 import FileSVG from '../../images/file.svg'
 import LangSVG from '../../images/global.svg'
 
-
-const Course = ({match}) => {
-    //Component inspiration from https://tailwindcomponents.com/component/comments
-    let course = useSelector((state) => state.course.courses)
-    const dispatch = useDispatch()
-   
-    useEffect(() => {
-        dispatch(getCourseById(match.params.id))
-    }, [match, match.params.id])
+const Course = ({ match }) => {
+  //Component inspiration from https://tailwindcomponents.com/component/comments
+  const course = useSelector((state) => state.course)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getCourseById(match.params.id))
+  }, [dispatch, match.params.id])
 
 
 
-
-    const InfoLabels = ({ labelInfo, SVGFile, isLink }) => {
-        return (
-        <>
-            <span className="inline-flex text-white space-x-2 items-center">
-            <img src={SVGFile} className="w-5 h-5"></img>
-            {isLink ? <a href={labelInfo}>Kursplan</a> : <span>{labelInfo}</span>}
-            </span>
-        </>
-        )
-    }
-
-
-    return (
+  return (
     <>
         { course.course ? (
             <div className="body bg-gray-800">
@@ -56,7 +41,7 @@ const Course = ({match}) => {
                 />
                 ({course.review.courseReviews.length} reviews)
             </span>
-            <div className="md:space-x-5 md:space-y-0 space-y-1 px-2 flex md:flex-row flex-col pb-4">
+            {/* <div className="md:space-x-5 md:space-y-0 space-y-1 px-2 flex md:flex-row flex-col pb-4">
                 <InfoLabels
                 labelInfo={course.course.courseID}
                 SVGFile={OpenBook}
@@ -70,7 +55,7 @@ const Course = ({match}) => {
                 labelInfo={course.course.teachingLanguage}
                 SVGFile={LangSVG}
                 />
-            </div>
+            </div> */}
             <div>
                 <span className="inline-flex text-white space-x-2 items-center">
                 <span>{course.course.courseDescription}</span>
