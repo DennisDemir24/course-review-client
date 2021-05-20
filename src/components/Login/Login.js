@@ -62,7 +62,7 @@ const Login = ({ login, auth: { isAuthenticated }, history }) => {
       <>
         <button
           onClick={onToggleVisible}
-          className="absolute right-10 top-6 bg-yellow-400 focus:outline-none rounded p-2 px-9 hover:bg-gray-600 hover:text-white text-black"
+          className="absolute right-10 top-6 bg-yellow-400 focus:outline-none rounded p-2 px-9 hover:bg-yellow-300 text-black"
           id="header-login-button"
         >Login</button>
         <div
