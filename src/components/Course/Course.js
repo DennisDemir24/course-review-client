@@ -20,6 +20,17 @@ const Course = ({ match }) => {
   }, [dispatch, match.params.id])
 
 
+  const InfoLabels = ({ labelInfo, SVGFile, isLink }) => {
+    console.log(labelInfo)
+    return (
+      <>
+        <span className="inline-flex text-white space-x-2 items-center">
+          <img src={SVGFile} className="w-5 h-5"></img>
+          {isLink ? <a href={labelInfo}>Kursplan</a> : <span>{labelInfo}</span>}
+        </span>
+      </>
+    )
+  }
 
   return (
     <>
@@ -28,44 +39,44 @@ const Course = ({ match }) => {
         <>
             <div className="pb-12">
             <h3 className="font-bold tracking-wide text-5xl mb-2 text-white">
-                {course.course.courseTitle}
+                {course.course.course.courseTitle}
             </h3>
             <span className="inline-flex text-white space-x-2 items-center">
                 <ReactStars
                 count={5}
                 size={30}
-                value={course.review.totalRating}
+                value={course.course.review.totalRating}
                 activeColor="#ffd700"
                 edit={false}
                 isHalf={true}
                 />
-                ({course.review.courseReviews.length} reviews)
+                ({course.course.review.courseReviews.length} reviews)
             </span>
-            {/* <div className="md:space-x-5 md:space-y-0 space-y-1 px-2 flex md:flex-row flex-col pb-4">
+            <div className="md:space-x-5 md:space-y-0 space-y-1 px-2 flex md:flex-row flex-col pb-4">
                 <InfoLabels
-                labelInfo={course.course.courseID}
+                labelInfo={course.course.course.courseID}
                 SVGFile={OpenBook}
                 />
                 <InfoLabels
-                labelInfo={course.course.syllabus}
+                labelInfo={course.course.course.syllabus}
                 SVGFile={FileSVG}
                 isLink={true}
                 />
                 <InfoLabels
-                labelInfo={course.course.teachingLanguage}
+                labelInfo={course.course.course.teachingLanguage}
                 SVGFile={LangSVG}
                 />
-            </div> */}
+            </div>
             <div>
                 <span className="inline-flex text-white space-x-2 items-center">
-                <span>{course.course.courseDescription}</span>
-                <span>{course.course.prerequisites}</span>
+                <span>{course.course.course.courseDescription}</span>
+                <span>{course.course.course.prerequisites}</span>
                 </span>
             </div>
             </div>
         </>
         <CommentBox />
-        <CommentSection reviews={course.review} />
+        <CommentSection reviews={course.course.review} />
         </div>
         ) : null}
     </>
