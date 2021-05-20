@@ -1,4 +1,4 @@
-import { SEARCH_COURSES, GET_COURSE_BY_ID } from '../actions/types'
+import { SEARCH_COURSES, GET_COURSE_BY_ID, POST_REVIEW } from '../actions/types'
 
 const initialState = {
   courses: null,
@@ -18,6 +18,11 @@ export default (state = initialState, action) => {
         return {
           ...state,
           courses: action.payload
+        }
+      case POST_REVIEW:
+        return {
+          ...state,
+          courses: [...state.courses, action.payload]
         }
       default:
         return state

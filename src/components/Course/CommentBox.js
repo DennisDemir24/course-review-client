@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, {useState} from 'react'
 
 
@@ -7,8 +8,18 @@ const CommentBox = () => {
 
     const toggleOpenBox = () => openBoxState(!openBox)
 
-    const HandleSubmit = event => {
-        alert('tes')
+    const HandleSubmit = (event, bool) => {
+        const res = axios.post('`https://api.kurskollen.xyz/api/courses/postreview`', {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            token: 'test',
+            courseID: '',
+            message: 'messaG',
+            rating: '',
+            anonymous: bool ? true : {studentID: ''}
+        })
+        alert(event.message)
     }
 
     return (
