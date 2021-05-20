@@ -9,7 +9,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  @apply bg-jet-black;
+  @apply bg-jet-black-header;
+  @apply bg-jet-black-main;
+  @apply bg-jet-black-footer;
 }
 
 code {

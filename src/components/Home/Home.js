@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 const Home = ({ course: {courses}}) => {
 
     return (
-      <div className="bg-jet-black">
+      <div className="bg-jet-black-main min-h-screen-85 relative">
         <SearchBar />
         <div className="grid grid-cols-4 grid-rows-4 gap-2 pl-4 pr-4">
           {courses !== null &&

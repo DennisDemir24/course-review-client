@@ -9,39 +9,25 @@ import OpenBook from '../../images/open-book.svg'
 import FileSVG from '../../images/file.svg'
 import LangSVG from '../../images/global.svg'
 
+const Course = ({ match }) => {
+  //Component inspiration from https://tailwindcomponents.com/component/comments
+  const course = useSelector((state) => state.course)
+  const dispatch = useDispatch()
+  console.log(course.course.course)
 
-const Course = ({match}) => {
-    //Component inspiration from https://tailwindcomponents.com/component/comments
-    let course = useSelector((state) => state.course.courses)
-    const dispatch = useDispatch()
-    console.log(useSelector((state) => state.course))
-   
     useEffect(() => {
         dispatch(getCourseById(match.params.id))
     },[match, match.params.id])
 
 
-
-    const InfoLabels = ({ labelInfo, SVGFile, isLink }) => {
-        return (
-        <>
-            <span className="inline-flex text-white space-x-2 items-center">
-            <img src={SVGFile} className="w-5 h-5"></img>
-            {isLink ? <a href={labelInfo}>Kursplan</a> : <span>{labelInfo}</span>}
-            </span>
-        </>
-        )
-    }
-
-
+    console.log(course.course)
     return (
     <>
-        { course.course ? (
-            <div className="body bg-gray-800">
-        <>
+      { course.course ? (
+          <div className="body bg-gray-800">
             <div className="pb-12">
             <h3 className="font-bold tracking-wide text-5xl mb-2 text-white">
-                {course.course.courseTitle}
+              {course.course.course.courseTitle}
             </h3>
             <span className="inline-flex text-white space-x-2 items-center">
                 <ReactStars
@@ -70,17 +56,14 @@ const Course = ({match}) => {
                 />
             </div>
             <div>
-                <span className="inline-flex text-white space-x-2 items-center">
-                <span>{course.course.courseDescription}</span>
-                <span>{course.course.prerequisites}</span>
-                </span>
+              <span className="inline-flex text-white space-x-2 items-center">
+                <span>{course.course.course.courseDescription}</span>
+                <span>{course.course.course.prerequisites}</span>
+              </span>
             </div>
-            </div>
-        </>
-        <CommentBox />
-        <CommentSection reviews={course.review} />
-        </div>
-        ) : null}
+            <CommentBox />
+            <CommentSection reviews={course.review} />
+        </div> Z) : null}
     </>
     )
 }
