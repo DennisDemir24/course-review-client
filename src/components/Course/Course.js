@@ -10,22 +10,22 @@ const Course = ({ match }) => {
   //Component inspiration from https://tailwindcomponents.com/component/comments
   const course = useSelector((state) => state.course)
   const dispatch = useDispatch()
-  console.log(course.courses.course)
+  console.log(course.course.course)
 
   useEffect(() => {
     dispatch(getCourseById(match.params.id))
   }, [dispatch, match.params.id])
 
 
-
+console.log(course.course)
   return (
     <>
-      { course.courses.course ? (
+      { course.course ? (
           <div className="body bg-gray-800">
         <>
           <div className="pb-12">
             <h3 className="font-bold tracking-wide text-5xl mb-2 text-white">
-              {course.courses.course.courseTitle}
+              {course.course.course.courseTitle}
             </h3>
             {/* <span className="inline-flex text-white space-x-2 items-center">
               <ReactStars
@@ -55,8 +55,8 @@ const Course = ({ match }) => {
             </div> */}
             <div>
               <span className="inline-flex text-white space-x-2 items-center">
-                <span>{course.courses.course.courseDescription}</span>
-                <span>{course.courses.course.prerequisites}</span>
+                <span>{course.course.course.courseDescription}</span>
+                <span>{course.course.course.prerequisites}</span>
               </span>
             </div>
           </div>
