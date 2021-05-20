@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import {createStore} from 'redux'
 import { useSelector, useDispatch} from 'react-redux'
 import { getCourseById } from '../../actions/courseActions'
+import { loadState, saveState } from '../../utils/localStorage.js'
 import CommentSection from './CommentSection.js'
 import CommentBox from './CommentBox.js'
 /* import CourseHeader from './CourseHeader.js' */
@@ -11,58 +12,14 @@ import FileSVG from '../../images/file.svg'
 import LangSVG from '../../images/global.svg'
 
 
-const Course = ({ match}) => {
+const Course = ({match}) => {
     //Component inspiration from https://tailwindcomponents.com/component/comments
     let course = useSelector((state) => state.course.courses)
     const dispatch = useDispatch()
-
-    const updateFormValues = ({formData}) => {
-        course = formData
-    }
-
-
-    const loadState = () => {
-        try {
-            const serializedState = JSON.parse(window.localStorage.getItem('state'))
-            if (serializedState === null) {
-                return undefined
-            }
-            return serializedState
-        } catch (e) {
-            return undefined
-        }
-    }
-
-    const saveState = (state) => {
-        try {
-            dispatch(getCourseById(match.params.id))
-            const serializedState = JSON.stringify(state)
-            window.localStorage.setItem('state', serializedState)
-        } catch (e) {
-            
-        }
-    }
-    saveState(course)
-
-    const persistedState = loadState()
-
-
-    const store = createStore(persistedState)
-
-
-    store.subscribe(() => {
-        saveState(store.getState())
-    })
-   /*  useEffect(() => {
-        dispatch(getCourseById(match.params.id))
-        window.localStorage.setItem('course', JSON.stringify(course))
-    })
-    
+   
     useEffect(() => {
-        const formData = window.localStorage.getItem('course')
-        console.log(formData);
-        updateFormValues(formData)
-    }, []) */
+        dispatch(getCourseById(match.params.id))
+    })
 
 
 
