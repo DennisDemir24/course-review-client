@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import { connect } from 'react-redux'
 import { login } from '../../actions/authActions'
 
-const Login = ({ login, auth: { isAuthenticated }, history }) => {
+const Login = ({ login, auth }) => {
     const [user, userState] = useState({
       username: '',
       password: '',
@@ -12,13 +12,9 @@ const Login = ({ login, auth: { isAuthenticated }, history }) => {
 
     const { username, password } = user
 
-    useEffect(() => {
-        if (isAuthenticated) {
-            history.push('/')
-        }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isAuthenticated, history])
-
+    const onLogout = (e) => {
+      login({username: "logout", password: ""}) 
+    } 
     const onChange = (e) => {
         userState({...user, [e.target.name]: e.target.value})
     }
@@ -57,7 +53,20 @@ const Login = ({ login, auth: { isAuthenticated }, history }) => {
 
     const wrapperRef = useRef(null)
     useOutsideAlerter(wrapperRef)
+    if (auth.isAuthenticated=== true) {
+      return (
+          <>
+              <h1>Logged in  {auth.user}</h1>
 
+              <button
+                  onClick={onLogout}
+                  className="absolute right-10 top-6 bg-yellow-400 focus:outline-none rounded p-2 px-9 hover:bg-gray-600 hover:text-white text-black"
+                  id="header-login-button"
+              >LOGGA UT</button>
+
+          </>
+      )
+  }
     return (
       <>
         <button
@@ -103,6 +112,7 @@ const Login = ({ login, auth: { isAuthenticated }, history }) => {
                     onChange={onChange}
                   />
                 </div>
+                <div id="error">{auth.errorMessage}</div>
                 <div className="flex justify-center items-center mt-6">
                   <button
                     className={`bg-yellow-400 py-2 px-8 text-lg text-black rounded border-green focus:outline-none focus:border-green-dark`}
