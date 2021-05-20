@@ -71,9 +71,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 # Deploy to cs cloud.
 ### SSH
 First ssh into the machine you are planning to deploy this server on.
-### Clone repo
+### Install server
     git clone https://github.com/DennisDemir24/course-review-client.git
     cd course-review-client
     npm i
     sudo npm install pm2 -g
     pm2 start --name frontend npm -- start --watch
+### Udate server
+    cd course-review-client 
+    git pull
