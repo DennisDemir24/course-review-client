@@ -17,7 +17,7 @@ const SearchBar = ({searchCourses}) => {
   }
 
   return (
-    <div className={`py-8 w-8/12 absolute top-2/4 left-2/4 transform -translate-x-2/4 -translate-y-2/4 ${animate ? 'animate-push-search-bar' : ''}`}>
+    <div className={`py-8 w-8/12 absolute top-2/4 left-2/4 transform z-5 -translate-x-2/4 -translate-y-2/4 ${animate ? 'animate-push-search-bar' : ''}`}>
       <form className="bg-white flex items-center rounded-full shadow-xl" onSubmit={onSubmit}>
         <input
           className="rounded-l-full w-full py-4 px-6 text-xl text-gray-700 leading-tight focus:outline-none"

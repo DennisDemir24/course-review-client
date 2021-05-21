@@ -9,6 +9,7 @@ const Course = ({ match }) => {
   //Component inspiration from https://tailwindcomponents.com/component/comments
   const course = useSelector((state) => state.course)
   const dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(getCourseById(match.params.id))
   }, [dispatch, match.params.id])
