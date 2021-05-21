@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { postReview } from '../../actions/reviewActions'
 import { connect } from 'react-redux'
 import ReactStars from 'react-rating-stars-component'
@@ -22,9 +22,7 @@ const CommentBox = ({ postReview, auth, course}) => {
         setAnon(e)}
 
     const handleSubmit = (e) => {
-        //e.preventDefault()
-
-        if (text !== "" ) {
+        if (text !== "") {
             const newReview = {
                 token: auth.token,
                 courseID: course.courseID,
@@ -32,6 +30,25 @@ const CommentBox = ({ postReview, auth, course}) => {
                 rating:rating,
                 anonymous: anon,
                 studentID: auth.user
+            }
+            postReview(newReview)
+
+            setText("")
+        }
+    }
+    const editReview = () => {
+
+        const token = localStorage.getItem('token')
+        const username = localStorage.getItem('username')
+        if (text !== "") {
+            const newReview = {
+                token: token,
+                reviewID: "the reviewID you want to edit.", 
+                message: text, // new message
+                rating: 1, //new rating number
+                anonymous: false, //anonymous update
+                studentID: username
+
             }
             postReview(newReview)
             setRating(0)
