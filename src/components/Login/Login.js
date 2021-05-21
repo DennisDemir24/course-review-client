@@ -56,13 +56,13 @@ const Login = ({ login, auth }) => {
     if (auth.isAuthenticated=== true) {
       return (
           <>
-              <h1>Logged in  {auth.user}</h1>
+              <span className="absolute right-48 top-9 text-sm">Logged in as {auth.user}</span>
 
               <button
                   onClick={onLogout}
-                  className="absolute right-10 top-6 bg-yellow-400 focus:outline-none rounded p-2 px-9 hover:bg-gray-600 hover:text-white text-black"
+                  className="absolute right-10 top-6 bg-yellow-400 focus:outline-none rounded p-2 px-9 hover:bg-yellow-300 text-black"
                   id="header-login-button"
-              >LOGGA UT</button>
+              >Logga ut</button>
 
           </>
       )
