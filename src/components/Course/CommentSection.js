@@ -8,10 +8,6 @@ const CommentUnique = ({review}) => {
             <div className="flex flex-row w-1/2" >
                 <h3 className="text-yellow-600 font-semibold text-lg md:text-left">{review.studentID}</h3>
             </div>
-            <div className="flex flex-row w-1/2">
-                <img src={Like} alt="Thumbs up" className="w-5 h-5 inline-block"/>
-                <img src={Like} alt="Thumbs up" className="w-5 h-5 inline-block transform rotate-180"/>
-            </div>
             <div className="flex flex-row w-1/2" >
                 <ReactStars
                     count={5}
@@ -23,7 +19,7 @@ const CommentUnique = ({review}) => {
             </div>
             <p className="text-gray-600 text-lg text-center md:text-left ">{review.message}</p>
             <div className="flex flex-row mr-2 w-full">
-                {(review.score.length ? <p className="text-gray-600 font-semibold text-lg md:text-left">{review.score.length} <img src={Like} alt="Thumbs up" className="w-5 h-5 inline-block"/></p> : null)} 
+                {(review.score.length ? <a href="" className="text-gray-600 font-semibold text-lg md:text-left">{review.score.length} <img src={Like} alt="Thumbs up" className="w-5 h-5 inline-block"/></a> : null)} 
             </div>
         </div>
     )
