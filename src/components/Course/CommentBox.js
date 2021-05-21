@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { postReview } from '../../actions/reviewActions'
 import { connect } from 'react-redux'
 import ReactStars from 'react-rating-stars-component'
@@ -24,7 +24,7 @@ const CommentBox = ({ postReview, auth, course}) => {
     const handleSubmit = (e) => {
         //e.preventDefault()
 
-        if (text !== "" ) {
+        if (text !== "") {
             const newReview = {
                 token: auth.token,
                 courseID: course.courseID,
