@@ -6,10 +6,10 @@ const Footer = () => {
       <ul className="flex items-center h-full px-2 text-center">
         <li className="flex-auto">&#169; Kurskollen</li>
         <li className="flex-auto">
-          <a href="/credits" className="underline">Credits</a>
+          <a href="/credits" className="underline">Ikoner av</a>
         </li>
         <li className="flex-auto">
-          <a href="mailto:test@cringe.com" className="underline">Contact</a>
+          <a href="mailto:test@cringe.com" className="underline">Kontakt</a>
         </li>
       </ul>
     </div>

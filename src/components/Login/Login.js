@@ -58,7 +58,7 @@ const Login = ({ login, auth }) => {
     if (auth.isAuthenticated=== true) {
       return (
           <>
-              <span className="absolute right-48 top-9 text-sm">Logged in as {auth.user}</span>
+              <span className="absolute right-48 top-9 text-sm">Inloggad som {auth.user}</span>
 
               <button
                   onClick={onLogout}
@@ -86,29 +86,29 @@ const Login = ({ login, auth }) => {
           <div className="bg-jet-black-header rounded-lg border-yellow-400 border-2">
             <div className="text-white rounded-lg py-10 px-16">
               <h1 className="text-2xl font-medium text-primary mt-4 mb-12 text-center">
-                Log in with your LNU credentials
+                Logga in med dina LNU uppgifter
               </h1>
 
               <form onSubmit={onSubmit}>
                 <div>
-                  <label htmlFor="text">LNU-Id</label>
+                  <label htmlFor="text">LNU-ID</label>
                   <input
                     type="text"
                     className={`w-full p-2 text-black rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4 bg-white`}
                     id="username"
-                    placeholder="Lnu-Id"
+                    placeholder="Lnu-ID"
                     name="username"
                     value={username}
                     onChange={onChange}
                   />
                 </div>
                 <div>
-                  <label htmlFor="password">Password</label>
+                  <label htmlFor="password">Lösenord</label>
                   <input
                     type="password"
                     className={`w-full p-2 text-black rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4 bg-white`}
                     id="password"
-                    placeholder="Your Password"
+                    placeholder="Ditt lösenord"
                     name="password"
                     value={password}
                     onChange={onChange}
@@ -120,7 +120,7 @@ const Login = ({ login, auth }) => {
                     className={`bg-yellow-400 py-2 px-8 text-lg text-black rounded border-green focus:outline-none focus:border-green-dark`}
                     type="submit"
                   >
-                    Login
+                    Logga in
                   </button>
                 </div>
               </form>
