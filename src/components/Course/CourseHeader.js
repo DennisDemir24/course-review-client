@@ -9,7 +9,6 @@ import LangSVG from '../../images/global.svg'
 import ReactStars from 'react-rating-stars-component'
 
 const InfoLabels = ({ labelInfo, SVGFile, isLink }) => {
-  console.log(labelInfo)
   return (
     <>
       <span className="inline-flex text-white space-x-2 items-center">
@@ -22,8 +21,6 @@ const InfoLabels = ({ labelInfo, SVGFile, isLink }) => {
 
 const CourseHeader = ({courseInfo}) => {
   const course = useSelector(state => state.course)
-
-  console.log(course)
 
   return (
     <>
