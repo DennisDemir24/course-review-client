@@ -14,6 +14,7 @@ const Login = ({ login, auth }) => {
 
     const onLogout = (e) => {
       login({username: "logout", password: ""})
+      userState({username: '', password:''})
     }
     const onChange = (e) => {
         userState({...user, [e.target.name]: e.target.value})
@@ -41,6 +42,7 @@ const Login = ({ login, auth }) => {
             !visible
           ) {
             visibleState(false)
+            userState({username: '', password: ''})
           }
         }
 
