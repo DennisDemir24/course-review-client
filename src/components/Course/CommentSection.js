@@ -19,7 +19,7 @@ const CommentUnique = ({review}) => {
             </div>
             <p className="text-gray-600 text-lg text-center md:text-left ">{review.message}</p>
             <div className="flex flex-row mr-2 w-full">
-                {(review.score.length ? <a href="" className="text-gray-600 font-semibold text-lg md:text-left">{review.score.length} <img src={Like} alt="Thumbs up" className="w-5 h-5 inline-block"/></a> : null)} 
+                <a href="" className="text-gray-600 font-semibold text-lg md:text-left">{review.score.length} <img src={Like} alt="Thumbs up" className="w-5 h-5 inline-block"/></a>
             </div>
         </div>
     )
