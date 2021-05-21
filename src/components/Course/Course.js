@@ -18,10 +18,10 @@ const Course = ({ match }) => {
   return (
     <>
         { course.course ? (
-            <div className="body bg-gray-800">
+            <div className="body bg-gray-800 min-h-screen-85">
                 <CourseHeader courseInfo={course.course}/>
                 <CommentBox  auth={auth} course={course.course.course}/>
-                <CommentSection reviews={course.course.review}/>
+                <CommentSection reviews={course.course.review} auth={auth} />
             </div>
         ) : null}
     </>

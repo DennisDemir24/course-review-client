@@ -17,12 +17,9 @@ const CommentBox = ({ postReview, auth, course}) => {
 
     const handleRatingChange = (e) =>  setRating(e) 
 
-    const handleAnonChange = (e) => {
-        console.log(e.target);
-        setAnon(e)}
+    const handleAnonChange = (e) => setAnon(e.target.checked)
 
     const handleSubmit = (e) => {
-        //e.preventDefault()
 
         if (text !== "") {
             const newReview = {
@@ -32,6 +29,25 @@ const CommentBox = ({ postReview, auth, course}) => {
                 rating:rating,
                 anonymous: anon,
                 studentID: auth.user
+            }
+            postReview(newReview)
+
+            setRating(0)
+            setAnon(false)
+            setText("")
+        }
+    }
+    const editReview = () => {
+
+        if (text !== "") {
+            const newReview = {
+                token: auth.token,
+                courseID: course.courseID,
+                message:text,
+                rating:rating,
+                anonymous: anon,
+                studentID: auth.user
+
             }
             postReview(newReview)
             setRating(0)

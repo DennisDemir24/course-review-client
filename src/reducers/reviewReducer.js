@@ -1,5 +1,6 @@
 import {
   POST_REVIEW,
+  SCORE_REVIEW
 } from '../actions/types'
 
 const initialState = {
@@ -15,6 +16,11 @@ export default (state = initialState, action) => {
         return {
           ...state,
           reviews: [...state.reviews, action.payload],
+        }
+    case SCORE_REVIEW:
+        return {
+          ...state,
+          reviews: [state.reviews, action.payload],
         }
     default:
       return state
