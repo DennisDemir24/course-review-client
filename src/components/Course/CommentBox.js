@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { postReview } from '../../actions/reviewActions'
 import { connect } from 'react-redux'
 
@@ -14,10 +14,35 @@ const CommentBox = ({ postReview }) => {
 
     const handleSubmit = (e) => {
         // e.preventDefault()
+        const token = localStorage.getItem('token')
+        const username = localStorage.getItem('username')
 
-        if (text !== "" ) {
+        if (text !== "") {
             const newReview = {
-                text
+                token: token,
+                courseID: "1DV607",
+                message: text,
+                rating: 1,
+                anonymous: false,
+                studentID: username
+            }
+            postReview(newReview)
+
+            setText("")
+        }
+    }
+    const editReview = () => {
+
+        const token = localStorage.getItem('token')
+        const username = localStorage.getItem('username')
+        if (text !== "") {
+            const newReview = {
+                token: token,
+                reviewID: "the reviewID you want to edit.", 
+                message: text, // new message
+                rating: 1, //new rating number
+                anonymous: false, //anonymous update
+                studentID: username
             }
             postReview(newReview)
 
