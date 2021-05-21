@@ -1,4 +1,4 @@
-import { POST_REVIEW } from './types'
+import { POST_REVIEW, SCORE_REVIEW } from './types'
 import axios from 'axios'
 
 export const postReview = (review) => async (dispatch) => {
@@ -42,6 +42,28 @@ export const editReview =(newReview)=> async (dispatch) => {
     )
     dispatch({
       type: POST_REVIEW,
+      payload: res.data,
+    })
+  } catch (error) {
+    console.log(error)
+  }
+
+}
+
+export const scoreReview= (thumpsUp)=> async (dispatch)=>{
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }
+  try {
+    const res =  axios.post(
+      'https://api.kurskollen.xyz/api/courses/scorereview',
+      thumpsUp,
+      config
+    )
+    dispatch({
+      type: SCORE_REVIEW,
       payload: res.data,
     })
   } catch (error) {

@@ -17,11 +17,10 @@ const CommentBox = ({ postReview, auth, course}) => {
 
     const handleRatingChange = (e) =>  setRating(e) 
 
-    const handleAnonChange = (e) => {
-        console.log(e.target);
-        setAnon(e)}
+    const handleAnonChange = (e) => setAnon(e.target.checked)
 
     const handleSubmit = (e) => {
+
         if (text !== "") {
             const newReview = {
                 token: auth.token,
@@ -33,21 +32,21 @@ const CommentBox = ({ postReview, auth, course}) => {
             }
             postReview(newReview)
 
+            setRating(0)
+            setAnon(false)
             setText("")
         }
     }
     const editReview = () => {
 
-        const token = localStorage.getItem('token')
-        const username = localStorage.getItem('username')
         if (text !== "") {
             const newReview = {
-                token: token,
-                reviewID: "the reviewID you want to edit.", 
-                message: text, // new message
-                rating: 1, //new rating number
-                anonymous: false, //anonymous update
-                studentID: username
+                token: auth.token,
+                courseID: course.courseID,
+                message:text,
+                rating:rating,
+                anonymous: anon,
+                studentID: auth.user
 
             }
             postReview(newReview)

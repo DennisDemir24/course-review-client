@@ -1,8 +1,21 @@
 import React from 'react'
 import Like from '../../images/like.svg'
+import { scoreReview } from '../../actions/reviewActions'
+import { connect } from 'react-redux'
 import ReactStars from 'react-rating-stars-component'
 
-const CommentUnique = ({review}) => {  
+const CommentUnique = ({scoreReview, review, auth}) => { 
+
+
+    const handleClick = (e) => {
+        e.preventDefault()
+        const reviewScore = {
+            token: auth.token,
+            reviewID: review._id
+
+        }
+        scoreReview(reviewScore)
+    }
     return (
         <div key={review._id} className="bg-black rounded-lg p-3  flex flex-col justify-center items-center md:items-start shadow-lg mb-4">
             <div className="flex flex-row w-1/2" >
@@ -19,20 +32,20 @@ const CommentUnique = ({review}) => {
             </div>
             <p className="text-gray-600 text-lg text-center md:text-left ">{review.message}</p>
             <div className="flex flex-row mr-2 w-full">
-                <a href="" className="text-gray-600 font-semibold text-lg md:text-left">{review.score.length} <img src={Like} alt="Thumbs up" className="w-5 h-5 inline-block"/></a>
+                <a href="" onClick={handleClick} className="text-gray-600 font-semibold text-lg md:text-left">{review.score.length} <img src={Like} alt="Thumbs up" className="w-5 h-5 inline-block"/></a>
             </div>
         </div>
     )
 }
 
-const CommentSection = ({reviews}) => {
+const CommentSection = ({scoreReview, reviews, auth}) => {
     return (
         <>
             <div className="reviews w-1/2 m-auto">
-                {reviews.courseReviews.map(review => <CommentUnique review={review} key={review._id}/>)}
+                {reviews.courseReviews.map(review => <CommentUnique scoreReview={scoreReview} review={review} auth={auth} key={review._id}/>)}
             </div>
         </>
     )
 }
 
-export default CommentSection
+export default connect(null, { scoreReview })(CommentSection)
