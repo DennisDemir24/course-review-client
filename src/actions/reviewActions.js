@@ -14,6 +14,7 @@ export const postReview = (review) => async (dispatch) => {
       review,
       config
     )
+    console.log(res);
     dispatch({
       type: POST_REVIEW,
       payload: res.data,

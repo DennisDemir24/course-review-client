@@ -6,16 +6,15 @@ import ReactStars from 'react-rating-stars-component'
 
 
 const CommentBox = ({ postReview, auth, course}) => {
-    console.log(auth);
     const [openBox, openBoxState] = useState(false)
     const [text, setText] = useState("")
-
+    console.log(course);
     const toggleOpenBox = () => openBoxState(!openBox)
 
     const handleChage = (e) => setText(e.target.value)
 
     const handleSubmit = (e) => {
-        // e.preventDefault()
+        e.preventDefault()
 
         if (text !== "" ) {
             const newReview = {

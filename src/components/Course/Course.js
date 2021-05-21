@@ -20,7 +20,7 @@ const Course = ({ match }) => {
         { course.course ? (
             <div className="body bg-gray-800">
                 <CourseHeader courseInfo={course.course}/>
-                <CommentBox  auth={auth} course={course.course}/>
+                <CommentBox  auth={auth} course={course.course.course}/>
                 <CommentSection reviews={course.course.review}/>
             </div>
         ) : null}
