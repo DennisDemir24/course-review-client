@@ -20,7 +20,7 @@ const CourseCard = ({course}) => (
 
 const Home = ({ course: {courses}}) => {
     return (
-      <div className="bg-jet-black-main min-h-screen-85 relative">
+      <div className="bg-jet-black-main min-h-screen-85 relative pb-4">
         <SearchBar />
         <div className="grid grid-cols-4 grid-rows-4 gap-2 pl-4 pr-4 pt-32">
           {courses !== null &&
