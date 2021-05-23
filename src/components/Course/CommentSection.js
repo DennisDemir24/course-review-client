@@ -1,10 +1,15 @@
 import React from 'react'
 import Like from '../../images/like.svg'
-import { scoreReview } from '../../actions/reviewActions'
+import { scoreReview, setCurrent } from '../../actions/reviewActions'
 import { connect } from 'react-redux'
 import ReactStars from 'react-rating-stars-component'
 
 const CommentUnique = ({scoreReview, review, auth}) => { 
+
+    const handleCurrent = () => {
+        console.log(review)
+        setCurrent(review)
+    }
 
 
     const handleClick = (e) => {
@@ -34,6 +39,9 @@ const CommentUnique = ({scoreReview, review, auth}) => {
             <div className="flex flex-row mr-2 w-full">
                 <a href="" onClick={handleClick} className="text-gray-600 font-semibold text-lg md:text-left">{review.score.length} <img src={Like} alt="Thumbs up" className="w-5 h-5 inline-block"/></a>
             </div>
+            <p>
+                <button className="text-white" onClick={handleCurrent}>Edit</button>
+            </p>
         </div>
     )
 }

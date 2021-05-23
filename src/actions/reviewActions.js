@@ -1,4 +1,4 @@
-import { POST_REVIEW, SCORE_REVIEW } from './types'
+import { POST_REVIEW, SCORE_REVIEW, EDIT_REVIEW, SET_CURRENT, CLEAR_CURRENT } from './types'
 import axios from 'axios'
 
 export const postReview = (review) => async (dispatch) => {
@@ -9,7 +9,7 @@ export const postReview = (review) => async (dispatch) => {
   }
 
   try {
-    const res =  axios.post(
+    const res =  await axios.post(
       'https://api.kurskollen.xyz/api/courses/postreview',
       review,
       config
@@ -28,7 +28,7 @@ export const postReview = (review) => async (dispatch) => {
  * @param {*} newReview 
  * @returns 
  */
-export const editReview =(newReview)=> async (dispatch) => {
+export const editReview = (newReview) => async (dispatch) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ export const editReview =(newReview)=> async (dispatch) => {
       config
     )
     dispatch({
-      type: POST_REVIEW,
+      type: EDIT_REVIEW,
       payload: res.data,
     })
   } catch (error) {
@@ -50,7 +50,7 @@ export const editReview =(newReview)=> async (dispatch) => {
 
 }
 
-export const scoreReview= (thumpsUp)=> async (dispatch)=>{
+export const scoreReview= (thumpsUp)=> async (dispatch)=> {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -70,4 +70,19 @@ export const scoreReview= (thumpsUp)=> async (dispatch)=>{
     console.log(error)
   }
 
+}
+
+// Set current review
+export const setCurrent = (review) => {
+    return {
+        type: SET_CURRENT,
+        payload: review
+    }
+}
+
+// Clear current review
+export const clearCurrent = () => {
+    return {
+        type: CLEAR_CURRENT
+    }
 }
