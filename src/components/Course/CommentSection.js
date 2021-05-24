@@ -23,16 +23,10 @@ const CommentUnique = ({scoreReview, review, auth}) => {
     return (
       <div
         key={review._id}
-        className="bg-black rounded-lg p-3  flex flex-col justify-center items-center md:items-start shadow-lg mb-4"
+        className="bg-black rounded-lg p-3 justify-center items-center md:items-start shadow-lg mb-4"
       >
-        <div className="flex flex-row w-1/2">
-            <div>
-                <h3 className="text-yellow-600 font-semibold text-lg md:text-left">
-                    {review.studentID}
-                </h3>
-            </div>
-
-            <div>
+        <div className="flex flex-row-reverse">
+            <div className="flex-shrink-o">
             { auth.isAuthenticated && review.studentID == auth.user ? (
                 <button
                 className="text-white"
@@ -42,9 +36,14 @@ const CommentUnique = ({scoreReview, review, auth}) => {
                 </button>
             ) : null}
             </div>
+            <div className="flex-1 ">
+                <h3 className="text-yellow-600 font-semibold text-lg md:text-left">
+                    {review.studentID}
+                </h3>
+            </div>
         </div>
         
-        <div className="flex flex-row w-1/2">
+        <div className="w-1/2">
           <ReactStars
             count={5}
             size={24}
@@ -56,7 +55,7 @@ const CommentUnique = ({scoreReview, review, auth}) => {
         <p className="text-gray-600 text-lg text-center md:text-left ">
           {review.message}
         </p>
-        <div className="flex flex-row mr-2 w-full">
+        <div className="mr-2 w-full">
           <a
             href=""
             onClick={handleClick}
