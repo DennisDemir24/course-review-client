@@ -12,7 +12,7 @@ const CommentBox = ({ postReview, auth, course, current}) => {
     const [anon, setAnon] = useState(false)
 
     useEffect(() => {
-        if (current) {
+        if (current !== null) {
             setText(current)
         } else {
             setText("")
@@ -30,20 +30,24 @@ const CommentBox = ({ postReview, auth, course, current}) => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        if (text !== "") {
-            const newReview = {
+        if (current === null) {
+            if (text !== '') {
+              const newReview = {
                 token: auth.token,
                 courseID: course.courseID,
-                message:text,
-                rating:rating,
+                message: text,
+                rating: rating,
                 anonymous: anon,
-                studentID: auth.user
-            }
-            postReview(newReview)
+                studentID: auth.user,
+              }
+              postReview(newReview)
 
-            setRating(0)
-            setAnon(false)
-            setText("")
+              setRating(0)
+              setAnon(false)
+              setText('')
+            }
+        } else {
+            handleEditReview()
         }
     }
     const handleEditReview = () => {
@@ -87,4 +91,4 @@ const mapStateToProps = (state) => ({
   current: state.review.current,
 })
 
-export default connect(mapStateToProps, { postReview })(CommentBox)
+export default connect(mapStateToProps, { postReview, editReview })(CommentBox)
