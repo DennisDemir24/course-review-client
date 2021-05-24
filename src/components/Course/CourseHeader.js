@@ -21,7 +21,7 @@ const CourseHeader = ({courseInfo}) => {
 
   return (
     <>
-      <div className="p-4">
+      <div className="p-4 pb-20 font-general">
         <h3 className="font-bold tracking-wide text-5xl mb-2 text-white">
           {courseInfo.course.courseTitle}
         </h3>
@@ -53,8 +53,8 @@ const CourseHeader = ({courseInfo}) => {
         </div>
         <div>
           <span className="inline-flex text-white space-x-2 items-center">
-            <span className="border-yellow-400 border-l-4 p-4">{courseInfo.course.courseDescription}</span>
-            <span className="border-yellow-400 border-l-4 p-4">{courseInfo.course.prerequisites}</span>
+            <span className="border-yellow-400 border-l-4 p-4"><p className="font-bold text-xl">Kursplan:</p>{courseInfo.course.courseDescription}</span>
+            <span className="border-yellow-400 border-l-4 p-4"><p className="font-bold text-xl">Krav:</p>{courseInfo.course.prerequisites}</span>
           </span>
         </div>
       </div>

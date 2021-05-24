@@ -71,7 +71,7 @@ const CommentBox = ({ postReview, auth, course, current}) => {
 
     return (
         <> { auth.isAuthenticated ? 
-            <div className="reviewBox w-1/2 m-auto pb-4">
+            <div className="reviewBox w-1/2 m-auto pb-4 font-general">
                 <button onClick={toggleOpenBox} className={openBox ? "h-0 invisible" : "font-bold py-2 px-4 w-full bg-yellow-500 text-lg text-white shadow-md rounded-lg "}>Skriv review </button>
                 <form onSubmit={handleSubmit} className={openBox ? "" : "h-0 invisible"}>
                     <div className="flex flex-row-reverse">
