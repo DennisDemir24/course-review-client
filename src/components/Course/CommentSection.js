@@ -12,7 +12,7 @@ const CommentUnique = ({scoreReview, review, auth}) => {
     }
 
     const handleClick = (e) => {
-        e.preventDefault()
+        //e.preventDefault()
         const reviewScore = {
             token: auth.token,
             reviewID: review._id
@@ -72,7 +72,7 @@ const CommentUnique = ({scoreReview, review, auth}) => {
 const CommentSection = ({scoreReview, reviews, auth}) => {
     return (
         <>
-            <div className="reviews w-1/2 m-auto">
+            <div className="reviews w-1/2 m-auto pb-4">
                 {reviews.courseReviews.map(review => <CommentUnique scoreReview={scoreReview} review={review} auth={auth} key={review._id}/>)}
             </div>
         </>
