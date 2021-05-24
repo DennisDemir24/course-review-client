@@ -35,7 +35,7 @@ export const editReview = (newReview) => async (dispatch) => {
     },
   }
   try {
-    const res =  axios.post(
+    const res =  await axios.post(
       'https://api.kurskollen.xyz/api/courses/editreview',
       newReview,
       config
@@ -57,7 +57,7 @@ export const scoreReview= (thumpsUp)=> async (dispatch)=> {
     },
   }
   try {
-    const res =  axios.post(
+    const res =  await axios.post(
       'https://api.kurskollen.xyz/api/courses/scorereview',
       thumpsUp,
       config
