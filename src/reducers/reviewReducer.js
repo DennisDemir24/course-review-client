@@ -1,6 +1,8 @@
 import {
   POST_REVIEW,
+  POST_REVIEW_FAIL,
   SCORE_REVIEW,
+  SCORE_REVIEW_FAIL,
   SET_CURRENT,
   CLEAR_CURRENT
 } from '../actions/types'
@@ -20,7 +22,17 @@ export default (state = initialState, action) => {
         ...state,
         reviews: [...state.reviews, action.payload],
       }
+    case POST_REVIEW_FAIL:
+      return {
+        ...state,   
+        POST_REVIEW_FAIL:action.payload.message
+    }
     case SCORE_REVIEW:
+      return {
+        ...state,
+        reviews: [state.reviews, action.payload],
+      }
+    case SCORE_REVIEW_FAIL:
       return {
         ...state,
         reviews: [state.reviews, action.payload],

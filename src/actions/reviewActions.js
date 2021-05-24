@@ -1,4 +1,4 @@
-import { POST_REVIEW, SCORE_REVIEW, EDIT_REVIEW, SET_CURRENT, CLEAR_CURRENT } from './types'
+import { POST_REVIEW, POST_REVIEW_FAIL, SCORE_REVIEW, SCORE_REVIEW_FAIL, EDIT_REVIEW, SET_CURRENT, CLEAR_CURRENT, SCORE } from './types'
 import axios from 'axios'
 
 export const postReview = (review) => async (dispatch) => {
@@ -9,16 +9,18 @@ export const postReview = (review) => async (dispatch) => {
   }
 
   try {
-    const res =  await axios.post(
+    const res = await axios.post(
       'https://api.kurskollen.xyz/api/courses/postreview',
       review,
       config
     )
-    console.log(res);
-    dispatch({
-      type: POST_REVIEW,
-      payload: res.data,
-    })
+
+    if (res.data.POST_REVIEW_FAIL) {
+      dispatch({ type: POST_REVIEW_FAIL, payload: res.data })
+    } else{
+      dispatch({type: POST_REVIEW, payload: res.data, })
+    }
+    
   } catch (error) {
     console.log(error)
   }
@@ -40,6 +42,7 @@ export const editReview = (newReview) => async (dispatch) => {
       newReview,
       config
     )
+
     dispatch({
       type: EDIT_REVIEW,
       payload: res.data,
@@ -50,39 +53,44 @@ export const editReview = (newReview) => async (dispatch) => {
 
 }
 
-export const scoreReview= (thumpsUp)=> async (dispatch)=> {
+export const scoreReview = (thumpsUp) => async (dispatch) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
     },
   }
   try {
-    const res =  await axios.post(
+    const res = await axios.post(
       'https://api.kurskollen.xyz/api/courses/scorereview',
       thumpsUp,
       config
     )
-    dispatch({
-      type: SCORE_REVIEW,
-      payload: res.data,
-    })
+    
+    if (res.data.SCORE_REVIEW_FAIL) {
+      dispatch({ type: SCORE_REVIEW_FAIL, payload: res.data })
+    } else {
+      dispatch({ type: SCORE_REVIEW, payload: res.data })
+    }
+
   } catch (error) {
     console.log(error)
   }
-
 }
+
+
 
 // Set current review
 export const setCurrent = (review) => {
-    return {
-        type: SET_CURRENT,
-        payload: review
-    }
+  return {
+    type: SET_CURRENT,
+    payload: review
+  }
 }
 
 // Clear current review
 export const clearCurrent = () => {
-    return {
-        type: CLEAR_CURRENT
-    }
-}
+  return {
+    type: CLEAR_CURRENT
+  }
+} 
+
