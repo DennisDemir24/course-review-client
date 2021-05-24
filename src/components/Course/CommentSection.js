@@ -10,7 +10,7 @@ const CommentUnique = ({scoreReview, review, auth}) => {
         console.log(review)
         setCurrent(review)
     }
-
+    console.log(review);
 
     const handleClick = (e) => {
         e.preventDefault()
@@ -54,7 +54,7 @@ const CommentUnique = ({scoreReview, review, auth}) => {
           </a>
         </div>
         <div>
-          { auth.isAuthenticated ? (
+          { auth.isAuthenticated && review.studentID == auth.user ? (
             <button
               className="text-white"
               onClick={handleCurrent}
