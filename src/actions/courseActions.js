@@ -21,12 +21,26 @@ export const searchCourses = (searchTerm) => async (dispatch) => {
 
 export const getCourseById = (id, token) => async (dispatch) => {
     try {
-     const res = await axios.post(`https://api.kurskollen.xyz/api/courses/course/${id}`)
-     
-     dispatch({
-       type: GET_COURSE_BY_ID,
-       payload: res.data
-     })
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }
+        const getCourseById = {
+            token: token,
+            courseID: id
+
+        }
+        const res = await axios.post(
+            'https://api.kurskollen.xyz/api/courses/course',
+            getCourseById,
+            config
+        )
+
+        dispatch({
+            type: GET_COURSE_BY_ID,
+            payload: res.data
+        })
     } catch (error) {
         console.log(error)
     }
