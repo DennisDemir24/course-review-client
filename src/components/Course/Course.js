@@ -12,8 +12,8 @@ const Course = ({ match }) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getCourseById(match.params.id))
-  }, [dispatch, match.params.id])
+    dispatch(getCourseById(match.params.id, auth.token))
+  }, [dispatch, match.params.id, auth.token])
   
   return (
     <>

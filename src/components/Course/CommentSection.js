@@ -10,7 +10,6 @@ const CommentUnique = ({scoreReview, review, auth}) => {
         console.log(review)
         setCurrent(review)
     }
-    console.log(review);
 
     const handleClick = (e) => {
         e.preventDefault()
@@ -27,10 +26,24 @@ const CommentUnique = ({scoreReview, review, auth}) => {
         className="bg-black rounded-lg p-3  flex flex-col justify-center items-center md:items-start shadow-lg mb-4"
       >
         <div className="flex flex-row w-1/2">
-          <h3 className="text-yellow-600 font-semibold text-lg md:text-left">
-            {review.studentID}
-          </h3>
+            <div>
+                <h3 className="text-yellow-600 font-semibold text-lg md:text-left">
+                    {review.studentID}
+                </h3>
+            </div>
+
+            <div>
+            { auth.isAuthenticated && review.studentID == auth.user ? (
+                <button
+                className="text-white"
+                onClick={handleCurrent}
+                >
+                Edit
+                </button>
+            ) : null}
+            </div>
         </div>
+        
         <div className="flex flex-row w-1/2">
           <ReactStars
             count={5}
@@ -50,18 +63,8 @@ const CommentUnique = ({scoreReview, review, auth}) => {
             className="text-gray-600 font-semibold text-lg md:text-left"
           >
             {review.score.length}{' '}
-            <img src={Like} alt="Thumbs up" className="w-5 h-5 inline-block" />
+            <img src={Like} alt="Thumbs up" className={review.score.includes(auth.user) ? "w-5 h-5 inline-block bg-blue-500 rounded p-0.5" : "w-5 h-5 inline-block"} />
           </a>
-        </div>
-        <div>
-          { auth.isAuthenticated && review.studentID == auth.user ? (
-            <button
-              className="text-white"
-              onClick={handleCurrent}
-            >
-              Edit
-            </button>
-          ) : null}
         </div>
       </div>
     )
