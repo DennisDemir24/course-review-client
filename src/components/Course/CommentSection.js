@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import Like from '../../images/like.svg'
 import { scoreReview, setCurrent } from '../../actions/reviewActions'
@@ -7,8 +8,8 @@ import ReactStars from 'react-rating-stars-component'
 const CommentUnique = ({scoreReview, review, auth}) => { 
 
     const handleCurrent = () => {
-        console.log(review)
-        setCurrent(review)
+        console.log(review.message)
+        setCurrent(review.message)
     }
 
     const handleClick = (e) => {
@@ -27,7 +28,7 @@ const CommentUnique = ({scoreReview, review, auth}) => {
       >
         <div className="flex flex-row-reverse">
             <div className="flex-shrink-o">
-            { auth.isAuthenticated && review.studentID == auth.user ? (
+            { auth.isAuthenticated && review.studentID === auth.user ? (
                 <button
                 className="text-white"
                 onClick={handleCurrent}
@@ -57,7 +58,7 @@ const CommentUnique = ({scoreReview, review, auth}) => {
         </p>
         <div className="mr-2 w-full">
           <a
-            href=""
+            href="#"
             onClick={handleClick}
             className="text-gray-600 font-semibold text-lg md:text-left"
           >

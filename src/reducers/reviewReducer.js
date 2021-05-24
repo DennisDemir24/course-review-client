@@ -4,7 +4,8 @@ import {
   SCORE_REVIEW,
   SCORE_REVIEW_FAIL,
   SET_CURRENT,
-  CLEAR_CURRENT
+  CLEAR_CURRENT,
+  EDIT_REVIEW,
 } from '../actions/types'
 
 const initialState = {
@@ -21,6 +22,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         reviews: [...state.reviews, action.payload],
+        loading: false
+      }
+    case EDIT_REVIEW:
+      return {
+        ...state,
+        reviews: state.reviews.map(review => review.id === action.payload.id ? action.payload : review)
       }
     case POST_REVIEW_FAIL:
       return {
