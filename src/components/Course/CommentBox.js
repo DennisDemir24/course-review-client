@@ -28,7 +28,7 @@ const CommentBox = ({ postReview, getCourseById, auth, course, current }) => {
 
   const handleAnonChange = (e) => setAnon(e.target.checked)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     if (current === null) {
@@ -41,8 +41,8 @@ const CommentBox = ({ postReview, getCourseById, auth, course, current }) => {
           anonymous: anon,
           studentID: auth.user,
         }
-        postReview(newReview)
-        getCourseById("2DV513", "")
+        await postReview(newReview)
+        getCourseById(course.courseID, auth.token)
 
       }
     } else {
