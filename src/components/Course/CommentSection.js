@@ -15,7 +15,7 @@ const CommentUnique = ({ scoreReview, getCourseById, review, auth }) => {
   }
 
   const handleClick = async (e) => {
-    //e.preventDefault()
+    e.preventDefault()
     const reviewScore = {
       token: auth.token,
       reviewID: review._id
