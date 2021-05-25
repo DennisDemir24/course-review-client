@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import ReactStars from 'react-rating-stars-component'
 
 const CommentUnique = ({ scoreReview, getCourseById, review, auth }) => {
+  console.log(review);
 
   const handleCurrent = () => {
     console.log(review.message)
@@ -61,14 +62,17 @@ const CommentUnique = ({ scoreReview, getCourseById, review, auth }) => {
         {review.message}
       </p>
       <div className="mr-2 w-full">
+        {review.studentID == auth.user ? <p className="text-gray-600 text-lg font-semibold">
+          {review.score.length + ' '}<img src={Like} alt="Thumbs up" className={review.score.includes(auth.user) ? "w-5 h-5 inline-block bg-blue-500 rounded p-0.5" : "w-5 h-5 inline-block"} /></p> :
         <a
           href="#"
           onClick={handleClick}
           className="text-gray-600 font-semibold text-lg md:text-left"
         >
-          {review.score.length}{' '}
+          {review.score.length + ' '}
           <img src={Like} alt="Thumbs up" className={review.score.includes(auth.user) ? "w-5 h-5 inline-block bg-blue-500 rounded p-0.5" : "w-5 h-5 inline-block"} />
-        </a>
+        </a>}
+        
       </div>
     </div>
   )
