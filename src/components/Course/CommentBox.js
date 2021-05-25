@@ -42,7 +42,6 @@ const CommentBox = ({ postReview, auth, course, current}) => {
               }
               postReview(newReview)
 
-              
             }
         } else {
             const newReview = {
