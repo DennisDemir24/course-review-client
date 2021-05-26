@@ -36,7 +36,7 @@ const CourseHeader = ({courseInfo}) => {
           />
           ({courseInfo.review.courseReviews.length} reviews)
         </span>
-        <div className="md:space-x-5 md:space-y-0 space-y-1 px-2 flex md:flex-row flex-col pb-4">
+        <div className="space-x-5 space-y-0 space-y-1 px-2 flex-row flex-col pb-4">
           <InfoLabels
             labelInfo={courseInfo.course.courseID}
             SVGFile={OpenBook}
