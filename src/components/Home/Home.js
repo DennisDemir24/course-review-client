@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 
 const CourseCard = ({course}) => (
   <Card className="text-center bg-jet-black-300 text-yellow-400 px-2 pt-2 pb-2 transition duration-500 ease-in-out hover:bg-yellow-400 transform hover:-translate-y-1 hover:scale-100 hover:text-black">
-    <Link to={`/course/${course.courseID}`}>
+    <Link to={`/course/${course.courseID}`} className="w-full h-full block">
       <div key={course.courseID}>
         <h1 className="text-jet-black-500 font-bold text-base">
           {course.courseID}
