@@ -58,7 +58,7 @@ const Login = ({ login, auth }) => {
     if (auth.isAuthenticated=== true) {
       return (
           <>
-              <span className="absolute right-48 top-9 text-sm">Inloggad som {auth.user}</span>
+              <span className="absolute hidden md:block md:right-48 md:top-9 text-sm">Inloggad som {auth.user}</span>
 
               <button
                   onClick={onLogout}
