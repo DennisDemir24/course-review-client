@@ -4,5 +4,11 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const LOGIN_FAIL = 'LOGIN_FAIL'
 export const LOGOUT = "LOGOUT"
 export const POST_REVIEW = 'POST_REVIEW'
-
+export const POST_REVIEW_FAIL= 'POST_REVIEW_FAIL'
+export const EDIT_REVIEW = 'EDIT_REVIEW'
+export const SCORE_REVIEW = 'SCORE_REVIEW'
+export const SET_CURRENT = 'SET_CURRENT'
+export const CLEAR_CURRENT = 'CLEAR_CURRENT'
+export const CAN_NOT_REVIEW_OWN = 'CAN_NOT_REVIEW_OWN'
+export const SCORE_REVIEW_FAIL = 'SCORE_REVIEW_FAIL'
 

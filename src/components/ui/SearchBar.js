@@ -25,7 +25,7 @@ const SearchBar = ({searchCourses}) => {
           value={search}
           onChange={onCourseSearch}
           type="text"
-          placeholder="Sök..."
+          placeholder="Sök efter kurskod eller kursnamn..."
         />
 
         <div className="p-4">
