@@ -51,7 +51,7 @@ const CourseHeader = ({courseInfo}) => {
             SVGFile={LangSVG}
           />
         </div>
-        <div className="text-white float-left max-h-course-info overflow-y-auto w-80 p-6 rounded bg-jet-black-400">
+        <div className="text-white float-left max-h-course-info overflow-y-scroll w-80 p-6 rounded bg-jet-black-400">
           <h2 className="font-bold text-xl">Kursplan</h2>
           <p className="border-yellow-400"><span dangerouslySetInnerHTML={{__html: courseInfo.course.courseDescription }}></span></p>
           <h2 className="font-bold text-xl mt-2">Krav</h2>
