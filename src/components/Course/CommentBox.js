@@ -57,6 +57,11 @@ const CommentBox = ({ postReview, getCourseById, auth, course, current }) => {
       editReview(newReview)
     }
 
+    setRating(0)
+    setAnon(false)
+    setText('')
+  }
+
   return (
     <>
       {' '}
@@ -67,16 +72,16 @@ const CommentBox = ({ postReview, getCourseById, auth, course, current }) => {
             className={
               openBox
                 ? 'h-0 invisible'
-                : 'font-bold py-2 px-4 w-full bg-yellow-500 text-lg text-white shadow-md rounded-lg '
+                : 'py-2 px-4 w-full bg-yellow-400 text-lg text-black shadow-md rounded-lg hover:bg-yellow-300'
             }
           >
-            Skriv review{' '}
+            Skriv review
           </button>
           <form
             onSubmit={handleSubmit}
             className={openBox ? '' : 'h-0 invisible'}
           >
-            <div className="flex flex-row-reverse">
+            <div className="flex flex-row-reverse items-center">
               <div className="flex-shrink-o">
                 <input
                   type="checkbox"
@@ -84,8 +89,8 @@ const CommentBox = ({ postReview, getCourseById, auth, course, current }) => {
                   onChange={handleAnonChange}
                 ></input>
               </div>
-              <div className="flex-shrink-o">
-                <p className="font-bold text-white">Anonym</p>
+              <div className="flex-shrink-o pr-2">
+                <p className="font-bold text-white">Anonym:</p>
               </div>
               <div className="flex-1 ">
                 <ReactStars
@@ -112,7 +117,7 @@ const CommentBox = ({ postReview, getCourseById, auth, course, current }) => {
             <input
               value={current ? 'Uppdatera review' : 'Skicka review'}
               type="submit"
-              className="font-bold py-2 px-4 w-full bg-yellow-500 text-lg text-white shadow-md rounded-lg "
+              className="py-2 px-4 w-full bg-yellow-400 text-lg text-black shadow-md rounded-lg hover:bg-yellow-300"
             />
           </form>
         </div>
@@ -120,9 +125,9 @@ const CommentBox = ({ postReview, getCourseById, auth, course, current }) => {
         <div className="reviewBox w-1/2 m-auto pb-4">
           <button
             disabled="true"
-            className="font-bold py-2 px-4 w-full bg-gray-400 text-lg text-white shadow-md rounded-lg "
+            className="font-bold py-2 px-4 w-full bg-gray-400 text-lg text-white shadow-md rounded-lg hover:bg-yellow-300"
           >
-            Skriv review{' '}
+            Skriv review
           </button>
         </div>
       )}
@@ -130,12 +135,8 @@ const CommentBox = ({ postReview, getCourseById, auth, course, current }) => {
   )
 }
 
-<<<<<<< HEAD
-export default connect(null, { postReview })(CommentBox)
-=======
 const mapStateToProps = (state) => ({
   current: state.review.current,
 })
 
 export default connect(mapStateToProps, { postReview, editReview, getCourseById })(CommentBox)
->>>>>>> 08c5f8a3a7498d35525a641bc3ffe268df230c7a

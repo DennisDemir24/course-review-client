@@ -3,7 +3,7 @@ import Login from '../Login/Login'
 
 const Header = () => {
   return (
-    <div className="bg-jet-black-header text-white font-general font-medium border-yellow-400 border-b-4 p-4">
+    <div className="bg-jet-black-400 text-white font-general font-medium border-yellow-400 border-b-4 p-4">
       <h1 className="font-bold font-title text-3xl">
         <a href="/">Kurskollen</a>
       </h1>
