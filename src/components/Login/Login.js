@@ -62,7 +62,7 @@ const Login = ({ login, auth }) => {
 
               <button
                   onClick={onLogout}
-                  className="absolute right-10 top-6 bg-yellow-400 focus:outline-none rounded p-2 px-9 hover:bg-yellow-300 text-black"
+                  className="absolute right-6 md:right-10 top-4 md:top-6 bg-yellow-400 focus:outline-none rounded p-2 px-9 hover:bg-yellow-300 text-black"
                   id="header-login-button"
               >Logga ut</button>
 
@@ -73,19 +73,19 @@ const Login = ({ login, auth }) => {
       <>
         <button
           onClick={onToggleVisible}
-          className="absolute right-10 top-6 bg-yellow-400 focus:outline-none rounded p-2 px-9 hover:bg-yellow-300 text-black"
+          className="absolute right-6 md:right-10 top-4 md:top-6 bg-yellow-400 focus:outline-none rounded p-2 px-9 hover:bg-yellow-300 text-black"
           id="header-login-button"
         >Login</button>
         <div
           className={
           visible ?
-          "w-96 absolute visible right-10 top-28 z-10" : "h-0 invisible"
+          "w-80vw md:w-96 absolute visible right-2/4 transform translate-x-2/4 md:translate-x-0 md:right-10 top-28 z-20 " : "h-0 invisible"
           }
           ref={wrapperRef}
         >
-          <div className="bg-jet-black-header rounded-lg border-yellow-400 border-2">
-            <div className="text-white rounded-lg py-10 px-16">
-              <h1 className="text-2xl font-medium text-primary mt-4 mb-12 text-center">
+          <div className="bg-jet-black-header rounded-lg border-yellow-400 border-2 bg-jet-black-400">
+            <div className="text-white rounded-lg py-10 px-8 sm:py-4 sm:px-16">
+              <h1 className="text-2xl font-medium text-primary mt-4 mb-12 text-center hidden sm:block">
                 Logga in med dina LNU uppgifter
               </h1>
 

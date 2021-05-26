@@ -7,7 +7,7 @@ const Header = () => {
       <h1 className="font-bold font-title text-3xl">
         <a href="/">Kurskollen</a>
       </h1>
-      <p>Se vad studenter tycker om dina framtida kurser</p>
+      <p className="hidden md:block">Se vad studenter tycker om dina framtida kurser</p>
       <Login/>
     </div>
   )

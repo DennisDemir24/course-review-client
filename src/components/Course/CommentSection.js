@@ -27,7 +27,7 @@ const CommentUnique = ({ scoreReview, getCourseById, review, auth }) => {
   return (
     <div
       key={review._id}
-      className="bg-jet-black-400 rounded-lg p-3 justify-center items-center md:items-start shadow-lg mb-4"
+      className="bg-jet-black-400 w-full rounded-lg p-3 justify-center md:justify-start items-center md:items-start shadow-lg mb-4"
     >
       <div className="flex flex-row-reverse">
         <div className="flex-shrink-o">
@@ -41,7 +41,7 @@ const CommentUnique = ({ scoreReview, getCourseById, review, auth }) => {
           ) : null}
         </div>
         <div className="flex-1 ">
-          <h3 className="text-yellow-600 font-semibold text-lg md:text-left">
+          <h3 className="text-yellow-600 font-semibold text-lg">
             {review.studentID}
           </h3>
         </div>
@@ -56,7 +56,7 @@ const CommentUnique = ({ scoreReview, getCourseById, review, auth }) => {
           edit={false}
         />
       </div>
-      <p className="text-white text-lg text-center md:text-left ">
+      <p className="text-white text-lg text-left ">
         {review.message}
       </p>
       <div className="mr-2 w-full">
@@ -80,7 +80,7 @@ const CommentUnique = ({ scoreReview, getCourseById, review, auth }) => {
 const CommentSection = ({ scoreReview, reviews, getCourseById, auth }) => {
   return (
     <>
-      <div className="reviews w-1/2 m-auto pb-4 font-general">
+      <div className="reviews w-4/5 lg:w-1/2 m-auto pb-4 font-general">
         {reviews.courseReviews.map(review => <CommentUnique scoreReview={scoreReview} review={review} getCourseById={getCourseById} auth={auth} key={review._id} />)}
       </div>
     </>

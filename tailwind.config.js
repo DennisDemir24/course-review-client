@@ -16,7 +16,10 @@ module.exports = {
             top: "0"
           }
         }
-      }
+      },
+      width: {
+        '80vw': '80vw'
+      },
     },
     fontFamily: {
       title: ['Dosis', 'sans-serif'],
