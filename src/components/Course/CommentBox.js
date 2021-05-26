@@ -66,7 +66,7 @@ const CommentBox = ({ postReview, getCourseById, auth, course, current }) => {
     <>
       {' '}
       {auth.isAuthenticated ? (
-        <div className="reviewBox w-1/2 m-auto pb-4 font-general">
+        <div className="reviewBox w-80vw lg:w-1/2 m-auto pb-4 font-general">
           <button
             onClick={toggleOpenBox}
             className={
