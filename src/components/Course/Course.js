@@ -14,11 +14,11 @@ const Course = ({ match }) => {
   useEffect(() => {
     dispatch(getCourseById(match.params.id, auth.token))
   }, [dispatch, match.params.id, auth.token])
-  
+
   return (
     <>
         { course.course ? (
-            <div className="body bg-gray-800 min-h-screen-85">
+            <div className="body bg-jet-black-300 min-h-screen-85">
                 <CourseHeader courseInfo={course.course}/>
                 <CommentBox  auth={auth} course={course.course.course}/>
                 <CommentSection reviews={course.course.review} auth={auth} />

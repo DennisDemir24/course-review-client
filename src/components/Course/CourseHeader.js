@@ -10,7 +10,7 @@ const InfoLabels = ({ labelInfo, SVGFile, isLink }) => {
     <>
       <span className="inline-flex text-white space-x-2 items-center">
         <img src={SVGFile} className="w-5 h-5"></img>
-        {isLink ? <a href={labelInfo}>Kursplan</a> : <span>{labelInfo}</span>}
+        {isLink ? <a href={labelInfo} className="underline">Kursplan</a> : <span>{labelInfo}</span>}
       </span>
     </>
   )
@@ -21,7 +21,7 @@ const CourseHeader = ({courseInfo}) => {
 
   return (
     <>
-      <div className="p-4 pb-20 font-general">
+      <div className="p-4 pb-0 font-general">
         <h3 className="font-bold tracking-wide text-5xl mb-2 text-white">
           {courseInfo.course.courseTitle}
         </h3>
@@ -51,11 +51,11 @@ const CourseHeader = ({courseInfo}) => {
             SVGFile={LangSVG}
           />
         </div>
-        <div>
-          <span className="inline-flex text-white space-x-2 items-center">
-            <span className="border-yellow-400 border-l-4 p-4"><p className="font-bold text-xl">Kursplan:</p>{courseInfo.course.courseDescription}</span>
-            <span className="border-yellow-400 border-l-4 p-4"><p className="font-bold text-xl">Krav:</p>{courseInfo.course.prerequisites}</span>
-          </span>
+        <div className="text-white float-left max-h-course-info overflow-y-scroll w-80 p-6 rounded bg-jet-black-400">
+          <h2 className="font-bold text-xl">Kursplan</h2>
+          <p className="border-yellow-400"><span dangerouslySetInnerHTML={{__html: courseInfo.course.courseDescription }}></span></p>
+          <h2 className="font-bold text-xl mt-2">Krav</h2>
+          <p className="border-yellow-400">{courseInfo.course.prerequisites}</p>
         </div>
       </div>
     </>

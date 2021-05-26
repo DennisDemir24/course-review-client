@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import Like from '../../images/like.svg'
 import { scoreReview, setCurrent } from '../../actions/reviewActions'
 import { getCourseById } from '../../actions/courseActions'
 
 import { connect } from 'react-redux'
 import ReactStars from 'react-rating-stars-component'
+import { ReactComponent as LikeBtn } from '../../images/like.svg'
 
 const CommentUnique = ({ scoreReview, getCourseById, review, auth }) => {
 
@@ -27,7 +27,7 @@ const CommentUnique = ({ scoreReview, getCourseById, review, auth }) => {
   return (
     <div
       key={review._id}
-      className="bg-black rounded-lg p-3 justify-center items-center md:items-start shadow-lg mb-4"
+      className="bg-jet-black-400 rounded-lg p-3 justify-center items-center md:items-start shadow-lg mb-4"
     >
       <div className="flex flex-row-reverse">
         <div className="flex-shrink-o">
@@ -56,21 +56,22 @@ const CommentUnique = ({ scoreReview, getCourseById, review, auth }) => {
           edit={false}
         />
       </div>
-      <p className="text-gray-600 text-lg text-center md:text-left ">
+      <p className="text-white text-lg text-center md:text-left ">
         {review.message}
       </p>
       <div className="mr-2 w-full">
         {review.studentID == auth.user ? <span className="text-gray-600 text-lg font-semibold">
-          {review.score.length + ' '}<img src={Like} alt="Thumbs up" className={review.score.includes(auth.user) ? "w-5 h-5 inline-block bg-blue-500 rounded p-0.5" : "w-5 h-5 inline-block"} /></span> :
+          {review.score.length + ' '}<LikeBtn className={review.score.includes(auth.user) ? "w-5 h-5 inline-block text-yellow-400 fill-current" : "w-5 h-5 inline-block text-white fill-current"}/>
+        </span> :
         <a
           href="#"
           onClick={handleClick}
-          className="text-gray-600 font-semibold text-lg md:text-left"
+          className="text-white font-semibold text-lg md:text-left"
         >
           {review.score.length + ' '}
-          <img src={Like} alt="Thumbs up" className={review.score.includes(auth.user) ? "w-5 h-5 inline-block bg-blue-500 rounded p-0.5" : "w-5 h-5 inline-block"} />
+          <LikeBtn className={review.score.includes(auth.user) ? "w-5 h-5 inline-block text-yellow-400 fill-current" : "w-5 h-5 inline-block text-white fill-current"}/>
         </a>}
-        
+
       </div>
     </div>
   )
