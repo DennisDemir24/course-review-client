@@ -56,7 +56,7 @@ const CommentUnique = ({ scoreReview, getCourseById, review, auth }) => {
           edit={false}
         />
       </div>
-      <p className="text-gray-600 text-lg text-center md:text-left ">
+      <p className="text-gray-600 text-lg md:text-left ">
         {review.message}
       </p>
       <div className="mr-2 w-full">

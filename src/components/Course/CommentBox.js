@@ -6,19 +6,11 @@ import ReactStars from 'react-rating-stars-component'
 
 
 
-const CommentBox = ({ postReview, getCourseById, auth, course, current }) => {
+const CommentBox = ({ postReview, getCourseById, auth, course }) => {
   const [openBox, openBoxState] = useState(false)
   const [text, setText] = useState("")
   const [rating, setRating] = useState(0)
   const [anon, setAnon] = useState(false)
-
-  useEffect(() => {
-    if (current !== null) {
-      setText(current.message)
-    } else {
-      setText("")
-    }
-  }, [current])
 
   const toggleOpenBox = () => openBoxState(!openBox)
 
@@ -31,8 +23,8 @@ const CommentBox = ({ postReview, getCourseById, auth, course, current }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    if (current === null) {
       if (text !== '') {
+
         const newReview = {
           token: auth.token,
           courseID: course.courseID,
@@ -41,25 +33,16 @@ const CommentBox = ({ postReview, getCourseById, auth, course, current }) => {
           anonymous: anon,
           studentID: auth.user,
         }
+
         await postReview(newReview)
         getCourseById(course.courseID, auth.token)
 
-      }
-    } else {
-      const newReview = {
-        token: auth.token,
-        courseID: course.courseID,
-        message: text,
-        rating: rating,
-        anonymous: anon,
-        studentID: auth.user,
-      }
-      editReview(newReview)
-    }
+        setRating(0)
+        setAnon(false)
+        setText('')
 
-    setRating(0)
-    setAnon(false)
-    setText('')
+      }
+    
   }
 
   return (
@@ -115,7 +98,7 @@ const CommentBox = ({ postReview, getCourseById, auth, course, current }) => {
               spellCheck="false"
             ></textarea>
             <input
-              value={current ? 'Uppdatera review' : 'Skicka review'}
+              value={'Skicka review'}
               type="submit"
               className="font-bold py-2 px-4 w-full bg-yellow-500 text-lg text-white shadow-md rounded-lg "
             />
@@ -135,8 +118,6 @@ const CommentBox = ({ postReview, getCourseById, auth, course, current }) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  current: state.review.current,
-})
 
-export default connect(mapStateToProps, { postReview, editReview, getCourseById })(CommentBox)
+
+export default connect(null, { postReview, editReview, getCourseById })(CommentBox)
