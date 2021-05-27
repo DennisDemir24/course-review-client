@@ -60,7 +60,7 @@ const CommentUnique = ({ scoreReview, getCourseById, review, auth }) => {
         {review.message}
       </p>
       <div className="mr-2 w-full">
-        {review.studentID == auth.user ? <span className="text-gray-600 text-lg font-semibold">
+        {review.studentID == auth.user || !auth.isAuthenticated ? <span className="text-gray-600 text-lg font-semibold">
           {review.score.length + ' '}<LikeBtn className={review.score.includes(auth.user) ? "w-5 h-5 inline-block text-yellow-400 fill-current" : "w-5 h-5 inline-block text-white fill-current"}/>
         </span> :
         <a
