@@ -6,7 +6,7 @@ import CommentBox from './CommentBox.js'
 import CourseHeader from './CourseHeader.js'
 
 const Course = ({ match }) => {
-  //Component inspiration from https://tailwindcomponents.com/component/comments
+  //Component inspiration from https://tailwindcomponents.com/component/comments.
   const course = useSelector((state) => state.course)
   const auth = useSelector((state) => state.auth)
   const dispatch = useDispatch()
