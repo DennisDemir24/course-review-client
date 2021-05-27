@@ -96,7 +96,7 @@ const CommentBox = ({ postReview, getCourseById, auth, course, current, comment 
                 <ReactStars
                   count={5}
                   size={30}
-                  value={0}
+                  value={3}
                   activeColor="#ffd700"
                   edit={true}
                   name="rating"
