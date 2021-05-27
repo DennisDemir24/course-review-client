@@ -6,7 +6,7 @@ import ReactStars from 'react-rating-stars-component'
 
 
 
-const CommentBox = ({ postReview, getCourseById, auth, course, current }) => {
+const CommentBox = ({ postReview, getCourseById, auth, course, current, comment }) => {
   const [openBox, openBoxState] = useState(false)
   const [text, setText] = useState("")
   const [rating, setRating] = useState(0)
@@ -65,7 +65,7 @@ const CommentBox = ({ postReview, getCourseById, auth, course, current }) => {
   return (
     <>
       {' '}
-      {auth.isAuthenticated ? (
+      {auth.isAuthenticated && !comment.some(commen => commen['studentID'] === auth.user) ? (
         <div className="reviewBox w-80vw lg:w-1/2 m-auto pb-4 font-general">
           <button
             onClick={toggleOpenBox}
@@ -124,8 +124,8 @@ const CommentBox = ({ postReview, getCourseById, auth, course, current }) => {
       ) : (
         <div className="reviewBox w-1/2 m-auto pb-4">
           <button
-            disabled="true"
-            className="font-bold py-2 px-4 w-full bg-gray-400 text-lg text-white shadow-md rounded-lg hover:bg-yellow-300"
+            disabled={true}
+            className="font-bold py-2 px-4 w-full bg-gray-400 text-lg text-white shadow-md rounded-lg"
           >
             Skriv review
           </button>
