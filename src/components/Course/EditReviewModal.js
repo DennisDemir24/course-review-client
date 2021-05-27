@@ -12,6 +12,8 @@ const EditReviewModal = ({
 }) => {
     
   const [text, setText] = useState('')
+  const [rating, setRating] = useState(0)
+  const [anon, setAnon] = useState(false)
 
   useEffect(() => {
     if (current !== null) {
@@ -23,12 +25,17 @@ const EditReviewModal = ({
       e.preventDefault()
     const newReview = {
       token: auth.token,
-      courseID: review.courseID,
+      reviewID: review._id,
       message: text,
       studentID: auth.user,
+      rating: review.rating,
+      anon: review.anon
     }
     await editReview(newReview)
-    getCourseById(review.courseID, auth.token)
+    // getCourseById(review.courseID, auth.token)
+    /* setRating(0)
+    setAnon(false)
+    setText('') */
   }
 
   return (
