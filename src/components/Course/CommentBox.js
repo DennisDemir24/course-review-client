@@ -6,11 +6,12 @@ import ReactStars from 'react-rating-stars-component'
 
 
 
-const CommentBox = ({ postReview, getCourseById, auth, course }) => {
+const CommentBox = ({ postReview, getCourseById, auth, course, comment }) => {
   const [openBox, openBoxState] = useState(false)
   const [text, setText] = useState("")
   const [rating, setRating] = useState(0)
   const [anon, setAnon] = useState(false)
+  
 
   const toggleOpenBox = () => openBoxState(!openBox)
 
@@ -47,24 +48,24 @@ const CommentBox = ({ postReview, getCourseById, auth, course }) => {
 
   return (
     <>
-      {' '}
-      {auth.isAuthenticated ? (
-        <div className="reviewBox w-1/2 m-auto pb-4 font-general">
+      {auth.isAuthenticated &&
+      !comment.some((commen) => commen['studentID'] === auth.user) ? (
+        <div className="reviewBox w-80vw lg:w-1/2 m-auto pb-4 font-general">
           <button
             onClick={toggleOpenBox}
             className={
               openBox
                 ? 'h-0 invisible'
-                : 'font-bold py-2 px-4 w-full bg-yellow-500 text-lg text-white shadow-md rounded-lg '
+                : 'py-2 px-4 w-full bg-yellow-400 text-lg text-black shadow-md rounded-lg hover:bg-yellow-300'
             }
           >
-            Skriv review{' '}
+            Skriv review
           </button>
           <form
             onSubmit={handleSubmit}
             className={openBox ? '' : 'h-0 invisible'}
           >
-            <div className="flex flex-row-reverse">
+            <div className="flex flex-row-reverse items-center">
               <div className="flex-shrink-o">
                 <input
                   type="checkbox"
@@ -72,14 +73,14 @@ const CommentBox = ({ postReview, getCourseById, auth, course }) => {
                   onChange={handleAnonChange}
                 ></input>
               </div>
-              <div className="flex-shrink-o">
-                <p className="font-bold text-white">Anonym</p>
+              <div className="flex-shrink-o pr-2">
+                <p className="font-bold text-white">Anonym:</p>
               </div>
               <div className="flex-1 ">
                 <ReactStars
                   count={5}
                   size={30}
-                  value={0}
+                  value={3}
                   activeColor="#ffd700"
                   edit={true}
                   name="rating"
@@ -100,24 +101,23 @@ const CommentBox = ({ postReview, getCourseById, auth, course }) => {
             <input
               value={'Skicka review'}
               type="submit"
-              className="font-bold py-2 px-4 w-full bg-yellow-500 text-lg text-white shadow-md rounded-lg "
+              className="py-2 px-4 w-full bg-yellow-400 text-lg text-black shadow-md rounded-lg hover:bg-yellow-300"
             />
           </form>
         </div>
       ) : (
         <div className="reviewBox w-1/2 m-auto pb-4">
           <button
-            disabled="true"
-            className="font-bold py-2 px-4 w-full bg-gray-400 text-lg text-white shadow-md rounded-lg "
+            disabled={true}
+            className="font-bold py-2 px-4 w-full bg-gray-400 text-lg text-white shadow-md rounded-lg"
           >
-            Skriv review{' '}
+            Skriv review
           </button>
         </div>
       )}
     </>
   )
 }
-
 
 
 export default connect(null, { postReview, editReview, getCourseById })(CommentBox)

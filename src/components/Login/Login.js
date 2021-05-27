@@ -14,6 +14,7 @@ const Login = ({ login, auth }) => {
 
     const onLogout = (e) => {
       login({username: "logout", password: ""})
+      userState({username: '', password:''})
     }
     const onChange = (e) => {
         userState({...user, [e.target.name]: e.target.value})
@@ -41,6 +42,7 @@ const Login = ({ login, auth }) => {
             !visible
           ) {
             visibleState(false)
+            userState({username: '', password: ''})
           }
         }
 
@@ -56,13 +58,13 @@ const Login = ({ login, auth }) => {
     if (auth.isAuthenticated=== true) {
       return (
           <>
-              <h1>Logged in  {auth.user}</h1>
+              <span className="absolute hidden md:block md:right-48 md:top-9 text-sm">Inloggad som {auth.user}</span>
 
               <button
                   onClick={onLogout}
-                  className="absolute right-10 top-6 bg-yellow-400 focus:outline-none rounded p-2 px-9 hover:bg-gray-600 hover:text-white text-black"
+                  className="absolute right-6 md:right-10 top-4 md:top-6 bg-yellow-400 focus:outline-none rounded p-2 px-9 hover:bg-yellow-300 text-black"
                   id="header-login-button"
-              >LOGGA UT</button>
+              >Logga ut</button>
 
           </>
       )
@@ -71,42 +73,42 @@ const Login = ({ login, auth }) => {
       <>
         <button
           onClick={onToggleVisible}
-          className="absolute right-10 top-6 bg-yellow-400 focus:outline-none rounded p-2 px-9 hover:bg-yellow-300 text-black"
+          className="absolute right-6 md:right-10 top-4 md:top-6 bg-yellow-400 focus:outline-none rounded p-2 px-9 hover:bg-yellow-300 text-black"
           id="header-login-button"
         >Login</button>
         <div
           className={
           visible ?
-          "w-96 absolute visible right-10 top-28 z-10" : "h-0 invisible"
+          "w-80vw md:w-96 absolute visible right-2/4 transform translate-x-2/4 md:translate-x-0 md:right-10 top-28 z-20 " : "h-0 invisible"
           }
           ref={wrapperRef}
         >
-          <div className="bg-jet-black-header rounded-lg border-yellow-400 border-2">
-            <div className="text-white rounded-lg py-10 px-16">
-              <h1 className="text-2xl font-medium text-primary mt-4 mb-12 text-center">
-                Log in with your LNU credentials
+          <div className="bg-jet-black-header rounded-lg border-yellow-400 border-2 bg-jet-black-400">
+            <div className="text-white rounded-lg py-10 px-8 sm:py-4 sm:px-16">
+              <h1 className="text-2xl font-medium text-primary mt-4 mb-12 text-center hidden sm:block">
+                Logga in med dina LNU uppgifter
               </h1>
 
               <form onSubmit={onSubmit}>
                 <div>
-                  <label htmlFor="text">LNU-Id</label>
+                  <label htmlFor="text">LNU-ID</label>
                   <input
                     type="text"
                     className={`w-full p-2 text-black rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4 bg-white`}
                     id="username"
-                    placeholder="Lnu-Id"
+                    placeholder="Lnu-ID"
                     name="username"
                     value={username}
                     onChange={onChange}
                   />
                 </div>
                 <div>
-                  <label htmlFor="password">Password</label>
+                  <label htmlFor="password">Lösenord</label>
                   <input
                     type="password"
                     className={`w-full p-2 text-black rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4 bg-white`}
                     id="password"
-                    placeholder="Your Password"
+                    placeholder="Ditt lösenord"
                     name="password"
                     value={password}
                     onChange={onChange}
@@ -118,7 +120,7 @@ const Login = ({ login, auth }) => {
                     className={`bg-yellow-400 py-2 px-8 text-lg text-black rounded border-green focus:outline-none focus:border-green-dark`}
                     type="submit"
                   >
-                    Login
+                    Logga in
                   </button>
                 </div>
               </form>

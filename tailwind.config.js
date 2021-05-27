@@ -16,7 +16,10 @@ module.exports = {
             top: "0"
           }
         }
-      }
+      },
+      width: {
+        '80vw': '80vw'
+      },
     },
     fontFamily: {
       title: ['Dosis', 'sans-serif'],
@@ -25,13 +28,16 @@ module.exports = {
     backgroundColor: (theme) => ({
       ...theme('colors'),
       'jet-black': {
-        header: '#212121',
-        main: '#383838',
-        footer: '#0A0A0A'
+        '300': '#383838',
+        '400': '#212121',
+        '500': '#0A0A0A'
       }
     }),
+    maxHeight: {
+      'course-info': '60vh',
+    },
     minHeight: {
-      'screen-85': '85vh'
+      'screen-85': '85vh',
     }
   },
   variants: {
