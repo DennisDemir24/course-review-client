@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Courses@cluster0.zv6lx.mongodb.net" uuid="7f016694-167c-4cf3-b6c3-8aa91240b45c">
+      <driver-ref>mongo</driver-ref>
+      <auto-commit>false</auto-commit>
+      <jdbc-driver>com.dbschema.MongoJdbcDriver</jdbc-driver>
+      <jdbc-url>mongodb+srv://cluster0.zv6lx.mongodb.net/Courses?retryWrites=true</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>
