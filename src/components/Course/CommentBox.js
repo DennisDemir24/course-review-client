@@ -9,9 +9,9 @@ import ReactStars from 'react-rating-stars-component'
 const CommentBox = ({ postReview, getCourseById, auth, course, comment }) => {
   const [openBox, openBoxState] = useState(false)
   const [text, setText] = useState("")
-  const [rating, setRating] = useState(0)
+  const [rating, setRating] = useState(3)
   const [anon, setAnon] = useState(false)
-  
+
 
   const toggleOpenBox = () => openBoxState(!openBox)
 
@@ -43,7 +43,7 @@ const CommentBox = ({ postReview, getCourseById, auth, course, comment }) => {
         setText('')
 
       }
-    
+
   }
 
   return (

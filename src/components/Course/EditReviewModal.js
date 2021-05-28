@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {editReview} from '../../actions/reviewActions'
 import {getCourseById} from '../../actions/courseActions'
 import {connect} from 'react-redux'
+import ReactStars from "react-rating-stars-component";
 
 const EditReviewModal = ({
                              current,
@@ -12,8 +13,13 @@ const EditReviewModal = ({
                          }) => {
 
     const [text, setText] = useState(review.message)
+
+    // if the anonymous flag was not set in the database give it false now.
+    if (review.anonymous === undefined) {
+        review.anonymous = false
+    }
     const [rating, setRating] = useState(review.rating)
-    const [anon, setAnon] = useState(review.anon)
+    const [anon, setAnon] = useState(review.anonymous)
 
     useEffect(() => {
         if (current !== null) {
@@ -28,8 +34,8 @@ const EditReviewModal = ({
             reviewID: review._id,
             message: text,
             studentID: auth.user,
-            rating: review.rating,
-            anon: review.anon
+            rating: rating,
+            anonymous: anon
         }
         await editReview(newReview)
         getCourseById(review.courseID, auth.token)
@@ -40,6 +46,20 @@ const EditReviewModal = ({
         setText('') */
     }
 
+    /**
+     * Updates anon flag
+     * @param e
+     */
+    const handleChange = (e) => {
+        setAnon(e.target.checked)
+    }
+    /**
+     * Updates rating.
+     * @param e
+     */
+    const handleRatingChange = (e) => {
+        setRating(e)
+    }
     return (
         <>
             <div
@@ -65,16 +85,32 @@ const EditReviewModal = ({
                                 onSubmit={handleSubmit}
                                 className={'h-0'}
                             >
-                <textarea
-                    className="w-full shadow-inner p-4 border-0 rounded-lg focus:shadow-outline text-1xl"
-                    placeholder="Skriv en review här"
-                    cols="3"
-                    rows="3"
-                    value={text}
-                    onChange={(e) => setText(e.target.value)}
-                    name="text"
-                    spellCheck="false"
-                ></textarea>
+                                <div>
+                                    <input type="checkbox" id="anonym" defaultChecked={review.anonymous}
+                                           onChange={handleChange}/>
+                                    <label for="anonym">Anonym</label>
+                                    <ReactStars
+                                        count={5}
+                                        size={30}
+                                        value={review.rating}
+                                        activeColor="#ffd700"
+                                        edit={true}
+                                        name="rating"
+                                        onChange={handleRatingChange}
+                                    />
+
+                                </div>
+
+                                <textarea
+                                    className="w-full shadow-inner p-4 border-0 rounded-lg focus:shadow-outline text-1xl"
+                                    placeholder="Skriv en review här"
+                                    cols="3"
+                                    rows="3"
+                                    value={text}
+                                    onChange={(e) => setText(e.target.value)}
+                                    name="text"
+                                    spellCheck="false"
+                                ></textarea>
                                 <input
                                     value={'Uppdatera review'}
                                     type="submit"
