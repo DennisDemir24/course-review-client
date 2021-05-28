@@ -6,6 +6,18 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `npm i`
+
+Runs the installation of the required libraries.
+
+### `npm i --global yarn`
+
+Runs the installation of yarn needed to run the application in case its not installed.
+
+### `npm i @craco/craco`
+
+Runs installation of craco which is also needed for running the client.
+
 ### `yarn start`
 
 Runs the app in the development mode.\
